@@ -7,6 +7,7 @@ $(function(){
 	var weatherDiv = $('#weather'),
 		scroller = $('#scroller'),
 		location = $('p.location');
+		subtitle = $('h4.subtitle')
 	// Does this browser support geolocation?
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
@@ -112,7 +113,7 @@ $(function(){
 		}
 	}
 	function changeSlide(slideNr){
-		var slides = ["slide-rain", "slide-cloudy", "slide-sun", "slide-error"];
+		var slides = ["slide-rain", "slide-cloudy", "slide-sun", "slide-error", "slide-about", "slide-blank"];
 		var slide = document.getElementById(slides[slideNr]);
 		for (var i = 0; i < 4; i++) {
 			var s = document.getElementById(slides[i]);
@@ -130,22 +131,28 @@ $(function(){
 	function locationError(error){
 		switch(error.code) {
 			case error.TIMEOUT:
-				showError("A timeout occured! Please try again!");
+				location.html('A timeout occured! Please try again!');
+				changeSlide(3);
 				break;
 			case error.POSITION_UNAVAILABLE:
-				showError('We can\'t detect your location. Sorry!');
+				location.html('We can\'t detect your location. Sorry!');
+				changeSlide(3);
 				break;
 			case error.PERMISSION_DENIED:
-				showError('Please allow geolocation access for this to work.');
+				subtitle.html('Please allow geolocation access for this to work.');
+				changeSlide(3);
 				break;
 			case error.NO_GEOLOCATION:
-				showError('Your browser does not support Geolocation!');
+				subtitle.html('Your browser does not support Geolocation!');
+				changeSlide(3);
 				break;
 			case error.NO_CITY_FOUND:
-				showError('We can\'t find information about your city!');
+				location.html('We can\'t find information about your city!');
+				changeSlide(3);
 				break;
 			case error.UNKNOWN_ERROR:
-				showError('An unknown error occured!');
+				location.html('An unknown error occured!');
+				changeSlide(3);
 				break;
 				
 		}
