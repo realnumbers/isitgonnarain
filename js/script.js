@@ -35,7 +35,7 @@ $(function(){
 				var city = cache.data.city.name;
 				var country = cache.data.city.country;
 
-				$.each(cache.data.list, function(){
+				/*$.each(cache.data.list, function(){
 					// "this" holds a forecast object
 					// Get the local time of this forecast (the api returns it in utc)
 					var localTime = new Date(this.dt*1000 - offset);
@@ -44,25 +44,34 @@ $(function(){
 						alert(sum);
 						determineSlide();
 						resetCt();
-						return 0;
+						return false;
 					}
 					else {
 						checkForecast(this.weather[0].main);
 					}
-				});
+				});*/
+				
+				cache.data.list.forEach(function(c){
+					var sum = sunCt + cloudyCt + rainCt;
+					if (sum > 3){
+						alert(sum + c.weather[0].main);
+						determineSlide();
+						resetCt();
+						Exit;
+					}
+					else {
+						checkForecast(c.weather[0].main);
+					}
+				})
 
+				
 				// Add the location to the page
 				location.html(city+', <b>'+country+'</b>');
 
 				weatherDiv.addClass('loaded');
-
 				// Set the slider to the first slide
-				
-
 			}
-
 			else{
-			
 				// If the cache is old or nonexistent, issue a new AJAX request
 
 				var weatherAPI = 'http://api.openweathermap.org/data/2.5/forecast?lat='+position.coords.latitude+
@@ -90,28 +99,32 @@ $(function(){
 		if (condition === "Clear"){
 			sunCt++;
 		}
-		else if (condition === "Clouds"){
-			cloudyCt++;
-		}
 		else {
-			rainCt++;
+			if (condition === "Clouds"){
+				cloudyCt++;
+			}
+			else {
+				rainCt++;
+			}
 		}
 	}
 	function determineSlide(){
 		if (rainCt > 2){
 			changeSlide(0);
 		}
-		else if (sunCt + cloudyCt > 2){
-			changeSlide(1);
-		}
-		else {
-			changeSlide(3);
+		else { 
+			if (sunCt + cloudyCt > 2){
+				changeSlide(1);
+			}
+			else {
+				changeSlide(3);
+			}
 		}
 	}
 	function changeSlide(slideNr){
 		var slides = ["slide-rain", "slide-cloudy", "slide-sun", "slide-error"];
 		var slide = document.getElementById(slides[slideNr]);
-		for (var i = 0; i < 3; i++) {
+		for (var i = 0; i < 4; i++) {
 			var s = document.getElementById(slides[i]);
 			s.style.display="none";
 		} 
