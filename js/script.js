@@ -12,7 +12,9 @@ $(function(){
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
 	}
 	else{
-		showError("Your browser does not support Geolocation!");
+		/*Error: Your browser does not support Geolocation!*/
+		locationError(error.NO_GEOLOCATION);
+		
 	}
 
 	// Get user's location, and use OpenWeatherMap
@@ -41,31 +43,14 @@ $(function(){
 					var localTime = new Date(this.dt*1000 - offset);
 					var sum = sunCt + cloudyCt + rainCt;
 					if (sum > 3){
-						alert(sum);
 						determineSlide();
 						resetCt();
 						return false;
 					}
 					else {
-						alert(this.weather[0].main);
 						checkForecast(this.weather[0].main);
 					}
 				});
-				
-				/*cache.data.list.forEach(function(c){
-					var localTime = new Date(c.dt*1000 - offset);
-					var sum = sunCt + cloudyCt + rainCt;
-					if (sum > 3){
-						alert(sum + c.weather[0].main);
-						determineSlide();
-						resetCt();
-						Exit;
-					}
-					else {
-						checkForecast(c.weather[0].main);
-					}
-					
-				})*/
 
 				
 				// Add the location to the page
@@ -95,7 +80,9 @@ $(function(){
 
 		}
 		catch(e){
-			changeSlide(3);
+			/*Error:We can't find information about your city!*/
+			locationError(error.NO_CITY_FOUND);
+			window.console && console.error(e);
 		}
 	}
 	function checkForecast(condition){
@@ -151,9 +138,16 @@ $(function(){
 			case error.PERMISSION_DENIED:
 				showError('Please allow geolocation access for this to work.');
 				break;
+			case error.NO_GEOLOCATION:
+				showError('Your browser does not support Geolocation!');
+				break;
+			case error.NO_CITY_FOUND:
+				showError('We can\'t find information about your city!');
+				break;
 			case error.UNKNOWN_ERROR:
 				showError('An unknown error occured!');
 				break;
+				
 		}
 
 	}
