@@ -37,15 +37,9 @@ $(function(){
 
 				$.each(cache.data.list, function(){
 					// "this" holds a forecast object
-
 					// Get the local time of this forecast (the api returns it in utc)
 					var localTime = new Date(this.dt*1000 - offset);
-
-					addWeather(
-						this.weather[0].icon,							
-						this.weather[0].main + ' <b>' + convertTemperature(this.main.temp_min) + '°' + DEG +
-												' / ' + convertTemperature(this.main.temp_max) + '°' + DEG+'</b>'
-					);
+					addWeather(this.weather[0].main);
 
 				});
 
@@ -55,7 +49,7 @@ $(function(){
 				weatherDiv.addClass('loaded');
 
 				// Set the slider to the first slide
-				showSlide(0);
+				
 
 			}
 
@@ -86,59 +80,11 @@ $(function(){
 		}
 	}
 
-	function addWeather(icon, condition){
+	function addWeather(condition){
 
 		var markup = condition;
 
 		scroller.append(markup);
-	}
-
-	/* Handling the previous / next arrows */
-
-	var currentSlide = 0;
-	weatherDiv.find('a.previous').click(function(e){
-		e.preventDefault();
-		showSlide(currentSlide-1);
-	});
-
-	weatherDiv.find('a.next').click(function(e){
-		e.preventDefault();
-		showSlide(currentSlide+1);
-	});
-
-
-	// listen for arrow keys
-
-	$(document).keydown(function(e){
-		switch(e.keyCode){
-			case 37: 
-				weatherDiv.find('a.previous').click();
-			break;
-			case 39:
-				weatherDiv.find('a.next').click();
-			break;
-		}
-	});
-
-	function showSlide(i){
-		var items = scroller.find('li');
-
-		if (i >= items.length || i < 0 || scroller.is(':animated')){
-			return false;
-		}
-
-		weatherDiv.removeClass('first last');
-
-		if(i == 0){
-			weatherDiv.addClass('first');
-		}
-		else if (i == items.length-1){
-			weatherDiv.addClass('last');
-		}
-
-		scroller.animate({left:(-i*100)+'%'}, function(){
-			currentSlide = i;
-		});
 	}
 
 	/* Error handling functions */
