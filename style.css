@@ -109,7 +109,7 @@ footer > * {
   font-style: italic;
   font-weight: normal;
 }
-.city {
+.location {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: 22px;
   font-style: italic;
@@ -133,12 +133,16 @@ footer > * {
 .huge {
   font-size: 60px;
   margin-bottom: 40px;
+  padding-top: 30px;
 }
 }
 
 @media screen and (max-width: 800px) {
 .huge {
-  margin-top: 
+  padding-top: 0px;
+}
+.slide {
+  padding-top: 60px;
 }
 }
 
