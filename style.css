@@ -17,6 +17,7 @@ body{
 a, a:visited {
 	outline:none;
 	color:#1c4f64;
+	text-decoration: none;
 }
 a:hover{
 	text-decoration:none;
@@ -28,50 +29,20 @@ section, footer, header{
 	The Header
 -----------------------------*/
 header h1{
-	text-align:center;
-	font: normal 52px 'Playball', cursive;
-	color:#518191;
+	text-align:left;
+	font-size: 52px;
+	font-family: 'Novecento Wide', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	color:#fff;
 	padding-top:60px;
-	text-shadow:1px 1px 1px rgba(0,0,0,0.1);
-}
-/*----------------------------
-	The Cloud Background
------------------------------*/
-#clouds{
-	background:url('img/cloud1.png') no-repeat;
-	height: 145px;
-	left: 50%;
-	position: absolute;
-	top: 250px;
-	margin-left: -542px;
-	width: 222px;
-	z-index: -1;
-}
-#clouds:before{
-	content:'';
-	background:url('img/cloud2.png') no-repeat;
-	height: 102px;
-	right: -710px;
-	position: absolute;
-	top: -125px;
-	width: 156px;
-}
-#clouds:after{
-	content:'';
-	background:url('img/cloud3.png') no-repeat;
-	height: 74px;
-	right: -750px;
-	position: absolute;
-	top: 325px;
-	width: 114px;
 }
 /*----------------------------
 	The Weather Div
 -----------------------------*/
 #weather{
-	position:relative;
-	width:494px;
-	height:407px;
+	position: relative;
+	width: 100%;
+	height: 100%;
 	margin: 50px auto 25px;
 	overflow:hidden;
 }
@@ -119,7 +90,7 @@ header h1{
 	position:absolute;
 	list-style:none;
 	width:100%;
-	height: 336px;
+	height: 100%;
 	white-space:nowrap;
 	top:0;
 	left:0;
