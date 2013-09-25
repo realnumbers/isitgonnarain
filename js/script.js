@@ -35,7 +35,7 @@ $(function(){
 				var city = cache.data.city.name;
 				var country = cache.data.city.country;
 
-				/*$.each(cache.data.list, function(){
+				$.each(cache.data.list, function(){
 					// "this" holds a forecast object
 					// Get the local time of this forecast (the api returns it in utc)
 					var localTime = new Date(this.dt*1000 - offset);
@@ -47,11 +47,13 @@ $(function(){
 						return false;
 					}
 					else {
+						alert(this.weather[0].main);
 						checkForecast(this.weather[0].main);
 					}
-				});*/
+				});
 				
-				cache.data.list.forEach(function(c){
+				/*cache.data.list.forEach(function(c){
+					var localTime = new Date(c.dt*1000 - offset);
 					var sum = sunCt + cloudyCt + rainCt;
 					if (sum > 3){
 						alert(sum + c.weather[0].main);
@@ -62,7 +64,8 @@ $(function(){
 					else {
 						checkForecast(c.weather[0].main);
 					}
-				})
+					
+				})*/
 
 				
 				// Add the location to the page
@@ -114,10 +117,10 @@ $(function(){
 		}
 		else { 
 			if (sunCt + cloudyCt > 2){
-				changeSlide(1);
+				changeSlide(2);
 			}
 			else {
-				changeSlide(3);
+				changeSlide(1);
 			}
 		}
 	}
