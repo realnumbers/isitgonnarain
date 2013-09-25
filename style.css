@@ -45,15 +45,17 @@ header h1{
 html, body {
   height: 100%;
   width: 100%;
+  overflow: none;
 }
 #weather {
   height: 100%;
   width: 100%;
 }
 .slide {
-  padding: 100px 0 50px;
+  padding: 100px 0 0;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
 }
 .slide > * {
   width: 80% !important;
@@ -61,12 +63,31 @@ html, body {
 }
 #slide-rain {
   background-color: #014f72;
+  background-image: linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+background-image: -o-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+background-image: -moz-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+background-image: -webkit-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+background-image: -ms-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.14, rgb(103,176,210)),
+	color-stop(0.86, rgb(1,78,114))
+);
   display: block;
 }
 #slide-cloudy {
   background-color: #648695;
+  
   display: none;
 }
+#slide-error {
+  background-color: red;
+  
+  display: none;
+}
+
 #slide-sun {
   background-color: #01a7f2;
   display: none;
@@ -84,20 +105,21 @@ footer > * {
   line-height: 98%;
 }
 .subtitle {
-  font-size: 25px;
+  font-size: 28px;
   font-style: italic;
   font-weight: normal;
 }
 .city {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-style: italic;
   font-weight: bold;
   float: left;
+  padding-top: 4px;
 }
 .info {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 400;
   color: #fff !important;
   float: right;
@@ -105,4 +127,27 @@ footer > * {
 .slide > footer {
   position: absolute;
   bottom: 0;
+}
+
+@media screen and (max-width: 1100px) {
+.huge {
+  font-size: 60px;
+  margin-bottom: 40px;
+}
+}
+
+@media screen and (max-width: 800px) {
+.huge {
+  margin-top: 
+}
+}
+
+@media screen and (max-width: 600px) {
+.huge {
+  font-size: 55px;
+  margin-bottom: 35px;
+}
+.subtitle {
+  font-size: 22px;
+ }
 }
