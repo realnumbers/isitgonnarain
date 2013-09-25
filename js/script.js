@@ -4,9 +4,20 @@ $(function(){
 	var weatherDiv = $('#weather'),
 		scroller = $('#scroller'),
 		location = $('p.location');
+	// Configure moment.js Time format
+	moment.lang('en', {
+		calendar: {
+		lastDay : '[Yesterday at] HH:mm',
+		sameDay : '[Today at] HH:mm',
+		nextDay : '[Tomorrow at] HH:mm',
+		lastWeek : '[last] dddd [at] HH:mm',
+		nextWeek : 'dddd [at] HH:mm',
+		sameElse : 'H'
+  		}
+	});
 	// Does this browser support geolocation?
 	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(locationSuccess, locationError, {enableHighAccuracy: true, timeout : 90000});
+		navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
 	}
 	else{
 		showError("Your browser does not support Geolocation!");
@@ -28,7 +39,12 @@ $(function(){
 					// "this" holds a forecast object
 					// Get the local time of this forecast (the api returns it in utc)
 					var localTime = new Date(this.dt*1000 - offset);
-					addWeather(this.weather[0].main);
+					addWeather(
+						this.weather[0].icon,
+						moment(localTime).calendar(),	// We are using the moment.js library to format the date
+						this.weather[0].main + ' <b>' + convertTemperature(this.main.temp_min) + '°' + DEG +
+												' / ' + convertTemperature(this.main.temp_max) + '°' + DEG+'</b>'
+					);
 				});
 				// Add the location to the page
 				location.html(city+', <b>'+country+'</b>');
@@ -56,17 +72,34 @@ $(function(){
 			window.console && console.error(e);
 		}
 	}
-	/* analysi data */
-	/*function analysiData(condition)*/
-	function addWeather(condition){
-		/*var markup = '<li>'+
+	function addWeather(icon, day, condition){
+		var markup = '<li>'+
 			'<img src="img/icons/'+ icon +'.png" />'+
 			' <p class="day">'+ day +'</p> <p class="cond">'+ condition +
-			'</p></li>';*/
-		var markup = condition;
-
+			'</p></li>';
 		scroller.append(markup);
 	}
+	/* Handling the previous / next arrows */
+	var currentSlide = 0;
+	weatherDiv.find('a.previous').click(function(e){
+		e.preventDefault();
+		showSlide(currentSlide-1);
+	});
+	weatherDiv.find('a.next').click(function(e){
+		e.preventDefault();
+		showSlide(currentSlide+1);
+	});
+	// listen for arrow keys
+	$(document).keydown(function(e){
+		switch(e.keyCode){
+			case 37: 
+				weatherDiv.find('a.previous').click();
+			break;
+			case 39:
+				weatherDiv.find('a.next').click();
+			break;
+		}
+	});
 	function showSlide(i){
 		var items = scroller.find('li');
 		if (i >= items.length || i < 0 || scroller.is(':animated')){
@@ -83,7 +116,6 @@ $(function(){
 			currentSlide = i;
 		});
 	}
-
 	/* Error handling functions */
 	function locationError(error){
 		switch(error.code) {
@@ -100,16 +132,12 @@ $(function(){
 				showError('An unknown error occured!');
 				break;
 		}
-
 	}
-
 	function convertTemperature(kelvin){
 		// Convert the temperature to either Celsius or Fahrenheit:
 		return Math.round(DEG == 'c' ? (kelvin - 273.15) : (kelvin*9/5 - 459.67));
 	}
-
 	function showError(msg){
 		weatherDiv.addClass('error').html(msg);
 	}
-
 });
