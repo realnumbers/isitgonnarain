@@ -3,7 +3,7 @@ $(function(){
 	/* Configuration */
 
 	var DEG = 'c';			// c for celsius, f for fahrenheit
-
+	var rainCt = 0, cloudyCt = 0, sunCt = 0; 
 	var weatherDiv = $('#weather'),
 		scroller = $('#scroller'),
 		location = $('p.location');
@@ -39,8 +39,16 @@ $(function(){
 					// "this" holds a forecast object
 					// Get the local time of this forecast (the api returns it in utc)
 					var localTime = new Date(this.dt*1000 - offset);
-					addWeather(this.weather[0].main);
-
+					var sum = sunCt + cloudyCt + rainCt;
+					if (sum > 3){
+						alert(sum);
+						determineSlide();
+						resetCt();
+						return 0;
+					}
+					else {
+						checkForecast(this.weather[0].main);
+					}
 				});
 
 				// Add the location to the page
@@ -75,18 +83,45 @@ $(function(){
 
 		}
 		catch(e){
-			showError("We can't find information about your city!");
-			window.console && console.error(e);
+			changeSlide(3);
 		}
 	}
-
-	function addWeather(condition){
-
-		var markup = condition;
-
-		scroller.append(markup);
+	function checkForecast(condition){
+		if (condition === "Clear"){
+			sunCt++;
+		}
+		else if (condition === "Clouds"){
+			cloudyCt++;
+		}
+		else {
+			rainCt++;
+		}
 	}
-
+	function determineSlide(){
+		if (rainCt > 2){
+			changeSlide(0);
+		}
+		else if (sunCt + cloudyCt > 2){
+			changeSlide(1);
+		}
+		else {
+			changeSlide(3);
+		}
+	}
+	function changeSlide(slideNr){
+		var slides = ["slide-rain", "slide-cloudy", "slide-sun", "slide-error"];
+		var slide = document.getElementById(slides[slideNr]);
+		for (var i = 0; i < 3; i++) {
+			var s = document.getElementById(slides[i]);
+			s.style.display="none";
+		} 
+		slide.style.display="block";
+	}
+	function resetCt () {
+		rainCt = 0;
+		cloudyCt = 0;
+		sunCt = 0;
+	}
 	/* Error handling functions */
 
 	function locationError(error){

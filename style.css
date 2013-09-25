@@ -101,7 +101,7 @@ background-image: -webkit-gradient(
 	color-stop(0.14, rgb(184,201,212)),
 	color-stop(0.86, rgb(100,134,149))
 );
-  display: block;
+  display: none;
 }
 #slide-sun {
   background-color: #01a7f2;
@@ -136,7 +136,7 @@ background-image: -webkit-gradient(
 	color-stop(0.14, rgb(252,124,92)),
 	color-stop(0.86, rgb(238,46,3))
 );
-  display: none;
+  display: block;
 }
 footer {
   padding: 30px 0;
