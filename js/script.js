@@ -19,7 +19,7 @@ $(function(){
 });
 	// Does this browser support geolocation?
 	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
+		navigator.geolocation.getCurrentPosition(locationSuccess, locationError, {enableHighAccuracy: true, timeout : 90000});
 	}
 	else{
 		showError("Your browser does not support Geolocation!");
