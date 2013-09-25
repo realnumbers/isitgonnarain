@@ -2,8 +2,8 @@
 	Simple reset
 --------------------------*/
 *{
-	margin:0;
-	padding:0;
+	margin: 0;
+	padding: 0;
 }
 /*-------------------------
 	General Styles
@@ -12,15 +12,18 @@ html{
 	background-color: 
 }
 body{
-	font:14px/1.3 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+	color: #fff;
+	font-weight: normal;
 }
 a, a:visited {
-	outline:none;
-	color:#1c4f64;
+	outline: none;
+	color: #1c4f64;
 	text-decoration: none;
 }
 a:hover{
-	text-decoration:none;
+	text-decoration: none;
 }
 section, footer, header{
 	display: block;
@@ -33,216 +36,73 @@ header h1{
 	font-size: 52px;
 	font-family: 'Novecento Wide', Helvetica, Arial, sans-serif;
 	font-weight: bold;
-	color:#fff;
 	padding-top:60px;
 }
 /*----------------------------
 	The Weather Div
 -----------------------------*/
-#weather{
-	position: relative;
-	width: 100%;
-	height: 100%;
-	margin: 50px auto 25px;
-	overflow:hidden;
-}
-#weather:before{
-	background: url("img/preloader.gif") no-repeat center center #111;
-	border: 1px solid #000;
-	border-radius: 50% 50% 50% 50%;
-	box-shadow: 0 1px 2px #444;
-	content: "";
-	height: 44px;
-	left: 50%;
-	margin: -22px 0 0 -22px;
-	opacity: 0.7;
-	position: absolute;
-	top: 50%;
-	width: 44px;
-}
-#weather.error:before{
-	display:none;
-}
-#weather.error{
-	text-align:center;
-	font-size: 20px;
-}
-#weather.loaded #scroller,
-#weather.loaded .arrow{
-	display:block
-}
-#weather.loaded:before{
-	display:none;
-}
-#weather.loaded{
-	border-radius:3px;
-	background:url('img/weather_bg.jpg') no-repeat;
-	box-shadow:0 0 5px rgba(0,0,0,0.15);
-}
-#weather.first a.previous,
-#weather.last a.next{
-	display:none;
-}
-/*----------------------------
-	The Scroller
------------------------------*/
-#scroller{
-	position:absolute;
-	list-style:none;
-	width:100%;
-	height: 100%;
-	white-space:nowrap;
-	top:0;
-	left:0;
-}
-#scroller li{
-	position:relative;
-	width:100%;
-	height:100%;
-	display:inline-block;
-	text-align:center;
-}
-#scroller li img{
-	display:block;
-	margin: 35px auto 0;
-}
-#scroller li .day{
-	color:#dcf0f6;
-	font-size:15px;
-	padding-top: 20px;
-	text-shadow:1px 1px 0 rgba(0,0,0,0.15);
-}
-#scroller li .day b{
-	font-weight:normal;
-	color:#0f3642;
-}
-#scroller li .cond{
-	bottom: -52px;
-	color: #424242;
-	font-size: 24px;
-	position: absolute;
-	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
-	width: 100%;
-}
-#scroller li .cond b{
-	text-transform:uppercase;
-}
-#scroller, .arrow{
-	display:none;
-}
-/*------------------------------
-	The Next/Previous arrows
--------------------------------*/
-.arrow{
-	background:url('img/arrows.png') no-repeat;
-	width:34px;
-	height:45px;
-	position:absolute;
-	top:50%;
-	margin-top:-45px;
-	opacity:0.6;
-	overflow:hidden;
-	text-indent:-99999px;
-}
-.arrow:hover{
-	opacity:1;
-}
-.arrow.previous{
-	left:20px;
-}
-.arrow.next{
-	background-position:top right;
-	right:20px;
-}
-/*----------------------------
-	The Location Div
------------------------------*/
-p.location{
-	font-weight:bold;
-	font-size:28px;
-	color:#296c81;
-	text-align:center;
-	margin-bottom:80px;
-}
-p.location b{
-	color:#569cb3;
-}
-/*----------------------------
-    The Demo Footer
------------------------------*/
-footer{
-	font-family:sans-serif;
-    background-color: #080808;
-    bottom: 0;
-    box-shadow: 0 -1px 2px rgba(0,0,0,0.4);
-    height: 40px;
-    left: 0;
-    position: fixed;
-    width: 100%;
-    z-index: 100000;
-}
-footer h2{
-    font-size: 14px;
-    font-weight: normal;
-    position: absolute;
-    top:0;
-    left: 50%;
-    bottom:0;
-    margin-left: -420px;
-    padding:13px 20px 0;
-    border:1px solid #000;
-    border-width:0 1px;
-    background-color:rgba(0,0,0,0.6);
-    box-shadow:0 0 5px #000 inset;
-    line-height: 1;
-    margin-top: 0;
-}
-footer h2 a{
-    color: #EEEEEE !important;
-    text-decoration:none !important;
-}
-footer h2 i{
-    font-style:normal;
-    color:#888;
-}
-#tzine-download{
-    opacity:0.9;
-    background-color:#257691;
-    font-size:11px;
-    text-align:center;
-    text-transform:uppercase;
-    width:150px;
-    height:28px;
-    line-height:28px;
-    text-decoration:none !important;
 
-    display: inline-block;
-    border-radius: 2px;
-    color: #fff !Important;
-    font-weight: bold;
-    box-shadow: 0 -1px 2px #1e5e74 inset;
-
-    border-top:1px solid #26849c;
-
-    text-shadow:1px 1px 1px #1e6176;
-    margin-top:6px;
+html, body {
+  height: 100%;
+  width: 100%;
 }
-#tzine-download:hover{
-    opacity:1;
+#weather {
+  height: 100%;
+  width: 100%;
 }
-#tzine-actions{
-    position:absolute;
-    top:0;
-    width:500px;
-    right:50%;
-    margin-right:-420px;
-    text-align:right;
+.slide {
+  padding: 100px 0 50px;
+  height: 100%;
+  width: 100%;
 }
-#tzine-actions iframe{
-    display: inline-block;
-    height: 21px;
-    width: 95px;
-    position: relative;
-    float: left;
-    margin-top: 11px;
+.slide > * {
+  width: 80% !important;
+  margin-left: 10%;
+}
+#slide-rain {
+  background-color: #014f72;
+  display: block;
+}
+#slide-cloudy {
+  background-color: #648695;
+  display: none;
+}
+#slide-sun {
+  background-color: #01a7f2;
+  display: none;
+}
+footer {
+  padding: 30px 0;
+}
+footer > * {
+  
+}
+.huge {
+  font-size: 80px;
+  margin-bottom: 80px;
+  letter-spacing: 0.006em;
+  line-height: 98%;
+}
+.subtitle {
+  font-size: 25px;
+  font-style: italic;
+  font-weight: normal;
+}
+.city {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  float: left;
+}
+.info {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #fff !important;
+  float: right;
+}
+.slide > footer {
+  position: absolute;
+  bottom: 0;
 }
