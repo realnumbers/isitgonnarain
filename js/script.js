@@ -21,7 +21,7 @@ $(function(){
         }
     
     };
-   var subtiles = {
+   var subtitles = {
         "rain": {
             "r1": "Better get an umbrella or something.",
             "r2": "I suggest staying at home and chilling out today.",
@@ -66,7 +66,7 @@ $(function(){
 	
 	
 	//Timer interval of 2min
-	setInterval(function(){notifyMe("Hello World2", "Zweite Zeile2", "16_3.png");},  2*60 * 100);
+	//setInterval(function(){notifyMe("Hello World2", "Zweite Zeile2", "16_3.png");},  2*60 * 100);
 	
 	// Does this browser support geolocation?
 	if (navigator.geolocation) {
@@ -74,7 +74,7 @@ $(function(){
 	}
 	else{
 		/*Error: Your browser does not support Geolocation!*/
-		locationError(error.NO_GEOLOCATION);
+		locationError("NO_GEOLOCATION");
 		
 	}
 
@@ -142,7 +142,7 @@ $(function(){
 		}
 		catch(e){
 			/*Error:We can't find information about your city!*/
-			locationError(error.NO_CITY_FOUND);
+			locationError("NO_CITY_FOUND");
 			window.console && console.error(e);
 		}
 	}
@@ -197,32 +197,55 @@ $(function(){
 		switch(currSlide) {
 			case 0:
 				var randomSlideNumber = 1;
+				randomNr = randomGen();
 				$.each(header.rain, function(){
 				if ( randomNr === randomSlideNumber ) {
 					//alert(this);
 					huge.html(this);
-					randomNr = randomGen();
 					return false;
 					}
 					else{randomSlideNumber++;}
 					});
+				var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(subtitles.rain, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						subtitle.html(this);
+						randomNr = randomGen();
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
 					
 				break;
 			case 1:
 				var randomSlideNumber = 1;
+				randomNr = randomGen();
 				$.each(header.cloudy, function(){
 				if ( randomNr === randomSlideNumber ) {
 					//alert(this);
 					huge.html(this);
-					randomNr = randomGen();
 					return false;
 					}
 					else{randomSlideNumber++;}
 					});
+				var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(subtitles.cloudy, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						subtitle.html(this);
+						randomNr = randomGen();
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
 					
 				break;
 			case 2:
 				var randomSlideNumber = 1;
+				randomNr = randomGen();
 				$.each(header.sun, function(){
 					if ( randomNr === randomSlideNumber ) {
 						//alert(this);
@@ -232,10 +255,22 @@ $(function(){
 						}
 						else{randomSlideNumber++;}
 						});
+				var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(subtitles.sun, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						subtitle.html(this);
+						randomNr = randomGen();
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
 					
 				break;
 			}
 	}
+	
 	function randomGen() {
 		return Math.floor((Math.random()*4)+1);
 	}
@@ -294,11 +329,11 @@ $(function(){
 				subtitle.html('Please allow geolocation access for this to work.');
 				changeSlide(3);
 				break;
-			case error.NO_GEOLOCATION:
+			case "NO_GEOLOCATION":
 				subtitle.html('Your browser does not support Geolocation!');
 				changeSlide(3);
 				break;
-			case error.NO_CITY_FOUND:
+			case "NO_CITY_FOUND":
 				location.html('We can\'t find information about your city!');
 				changeSlide(3);
 				break;
