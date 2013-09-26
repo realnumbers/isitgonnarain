@@ -185,6 +185,12 @@ footer > * {
   letter-spacing: 0.006em;
   line-height: 98%;
 }
+.hugeAbout {
+  font-size: 80px;
+  margin-bottom: 80px;
+  letter-spacing: 0.006em;
+  line-height: 98%;
+}
 .subtitle {
   font-size: 28px;
   font-style: italic;
@@ -230,10 +236,17 @@ footer > * {
   margin-bottom: 40px;
   padding-top: 30px;
 }
+.hugeAbout {
+  font-size: 60px;
+  margin-bottom: 40px;
+  padding-top: 30px;
 }
-
+}
 @media screen and (max-width: 800px) {
 .huge {
+  padding-top: 0px;
+}
+.hugeAbout {
   padding-top: 0px;
 }
 .slide {
@@ -243,6 +256,10 @@ footer > * {
 
 @media screen and (max-width: 600px) {
 .huge {
+  font-size: 55px;
+  margin-bottom: 35px;
+}
+.hugeAbout {
   font-size: 55px;
   margin-bottom: 35px;
 }
@@ -256,6 +273,11 @@ footer > * {
   padding-top: 30px;
 }
 .huge {
+  font-size: 45px;
+  margin-bottom: 35px;
+}
+
+.hugeAbout {
   font-size: 45px;
   margin-bottom: 35px;
 }

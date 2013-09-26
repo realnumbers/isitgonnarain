@@ -69,8 +69,9 @@ $(function(){
 	var randomNr = randomGen();
 	
 		setInterval(function(){
-		if ( nText !== undefined)
+		if ( nText !== undefined && nSub !== undefined && nIcon !== undefined && lastpage !== 4 )
 	{
+		//alert(nText +" "+ nSub + nIcon)
 		notifyMe(nText, nSub, nIcon)
 	}
 	},  2*60 * 100);
@@ -204,7 +205,7 @@ $(function(){
 		slide.style.display="block";
 		 
 		randomSlide(slideNr);
-		notifyMe(nText, nSub, nIcon);
+		//notifyMe(nText, nSub, nIcon);
 		document.title = "Dry - " + nText;
 	}
 	function resetCt() {
