@@ -3,11 +3,20 @@ $(function(){
 	/* Configuration */
 
 	var DEG = 'c';			// c for celsius, f for fahrenheit
-	var rainCt = 0, cloudyCt = 0, sunCt = 0; 
+	var rainCt = 0, cloudyCt = 0, sunCt = 0;
+	var lastpage = 5;
+	var lastpage2 = 5;
 	var weatherDiv = $('#weather'),
 		scroller = $('#scroller'),
-		location = $('p.location');
-		subtitle = $('h4.subtitle')
+		location = $('p.location'),
+		subtitle = $('h4.subtitle');
+		
+		$( ".info" ).click(function() {
+		aboutPage();
+		});
+
+	
+	
 	// Does this browser support geolocation?
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
@@ -115,16 +124,27 @@ $(function(){
 	function changeSlide(slideNr){
 		var slides = ["slide-rain", "slide-cloudy", "slide-sun", "slide-error", "slide-about", "slide-blank"];
 		var slide = document.getElementById(slides[slideNr]);
-		for (var i = 0; i < 4; i++) {
+		for (var i = 0; i < 6; i++) {
 			var s = document.getElementById(slides[i]);
 			s.style.display="none";
 		} 
+		lastpage2 = lastpage;
+		lastpage = slideNr;
 		slide.style.display="block";
 	}
 	function resetCt () {
 		rainCt = 0;
 		cloudyCt = 0;
 		sunCt = 0;
+	}
+	/* About Page*/
+	function aboutPage(){
+		if (lastpage === 4){
+			changeSlide(lastpage2);
+		}
+		else {
+			changeSlide(4);
+		}
 	}
 	/* Error handling functions */
 
