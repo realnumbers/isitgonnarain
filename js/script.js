@@ -18,7 +18,7 @@ $(function(){
 		});
 	
 	//Timer interval of 2min
-	setInterval(function(){notifyMe("Hallo world!Nach 2 ");}, 2 * 60 * 1000);
+	setInterval(function(){notifyMe("Hallo world!Nach 2 ");},  2*60 * 100);
 	
 	// Does this browser support geolocation?
 	if (navigator.geolocation) {
