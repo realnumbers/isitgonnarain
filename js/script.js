@@ -1,21 +1,87 @@
 $(function(){
-
 	/* Configuration */
+	var header = {
+        "rain": {
+            "r1": "Dude, it's totally gonna rain today!",
+            "r2": "Brace yourselves, Rain is coming.",
+            "r3": "Rain. Rain everywhere.",
+            "r4": "Bad news, guys. It's gonna rain."
+        },
+        "cloudy": {
+            "c1": "It might be raining today, but I'm not sure.",
+            "c2": "It could possibly rain today.",
+            "c3": "The possibily of rain is not to be ruled out.",
+            "c4": "It may very well rain today."
+        },
+        "sun": {
+            "s1": "Nothing to worry about.",
+            "s2": "Everything's fine.",
+            "s3": "Lookin' good!",
+            "s4": "You're in luck."
+        }
+    
+    };
+   var subtitles = {
+        "rain": {
+            "r1": "Better get an umbrella or something.",
+            "r2": "I suggest staying at home and chilling out today.",
+            "r3": "If you're thinking of leaving the house, you best think again.",
+            "r4": "You should probably not leave the house without a jacket."
+        },
+        "cloudy": {
+            "c1": "Take an umbrella, or don't. Your call. Don't blame me if you get wet, though.",
+            "c2": "It's hard to say whether it's goint to rain, so you better be prepared.",
+            "c3": "You should probably take an umbrella with you, just to be safe.",
+            "c4": "If you're leaving the house you should take an umbrella with you."
+        },
+        "sun": {
+            "s1": "No rain in sight.",
+            "s2": "Rain is really unlikely today.",
+            "s3": "It's not going to rain today.",
+            "s4": "I'm pretty sure it's not going to rain."
+        }
+    
+};
+
 
 	var DEG = 'c';			// c for celsius, f for fahrenheit
 	var rainCt = 0, cloudyCt = 0, sunCt = 0;
 	var lastpage = 5;
 	var lastpage2 = 5;
+<<<<<<< HEAD
 	notifyMe("Hello World");
+=======
+	
+>>>>>>> 790b6129d7bee07bb3021920999f7fc5bd81f3cd
 	
 	var weatherDiv = $('#weather'),
 		scroller = $('#scroller'),
 		location = $('p.location'),
+		huge = $('.huge'),
 		subtitle = $('h4.subtitle');
+<<<<<<< HEAD
 		
 		$( ".info" ).click(function() {
 		aboutPage();
 		});
+=======
+	var nText, nSub, nIcon;
+	var randomNr = randomGen();
+	
+		setInterval(function(){
+		if ( nText !== undefined)
+	{
+		notifyMe(nText, nSub, nIcon)
+	}
+	},  2*60 * 100);
+	// About Page	
+	$( ".info" ).click(function() {
+	aboutPage();
+	});
+	
+	
+	
+>>>>>>> 790b6129d7bee07bb3021920999f7fc5bd81f3cd
 	
 	//Timer interval of 2min
 	setInterval(function(){notifyMe("Hallo world!Nach 2 ");},  2*60 * 100);
@@ -26,7 +92,7 @@ $(function(){
 	}
 	else{
 		/*Error: Your browser does not support Geolocation!*/
-		locationError(error.NO_GEOLOCATION);
+		locationError("NO_GEOLOCATION");
 		
 	}
 
@@ -94,7 +160,7 @@ $(function(){
 		}
 		catch(e){
 			/*Error:We can't find information about your city!*/
-			locationError(error.NO_CITY_FOUND);
+			locationError("NO_CITY_FOUND");
 			window.console && console.error(e);
 		}
 	}
@@ -125,6 +191,7 @@ $(function(){
 		}
 	}
 	function changeSlide(slideNr){
+		//randomGen();
 		var slides = ["slide-rain", "slide-cloudy", "slide-sun", "slide-error", "slide-about", "slide-blank"];
 		var slide = document.getElementById(slides[slideNr]);
 		for (var i = 0; i < 6; i++) {
@@ -133,12 +200,140 @@ $(function(){
 		} 
 		lastpage2 = lastpage;
 		lastpage = slideNr;
+
 		slide.style.display="block";
+		 
+		randomSlide(slideNr);
+		notifyMe(nText, nSub, nIcon);
+		document.title = "Dry - " + nText;
 	}
-	function resetCt () {
+	function resetCt() {
 		rainCt = 0;
 		cloudyCt = 0;
 		sunCt = 0;
+	}
+	function randomSlide(currSlide) {
+		
+		switch(currSlide) {
+			case 0:
+				var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(header.rain, function(){
+				if ( randomNr === randomSlideNumber ) {
+					//alert(this);
+					huge.html(this);
+					return false;
+					}
+					else{randomSlideNumber++;}
+					});
+				var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(subtitles.rain, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						subtitle.html(this);
+						randomNr = randomGen();
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
+					var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(subtitles.rain, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						subtitle.html(this);
+						randomNr = randomGen();
+						nSub = this;
+						nIcon = "img/rain.png";
+						//alert(nIcon);
+						
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
+					
+				break;
+			case 1:
+				var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(header.cloudy, function(){
+				if ( randomNr === randomSlideNumber ) {
+					//alert(this);
+					huge.html(this);
+					return false;
+					}
+					else{randomSlideNumber++;}
+					});
+				var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(subtitles.cloudy, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						subtitle.html(this);
+						randomNr = randomGen();
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
+					var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(subtitles.cloudy, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						subtitle.html(this);
+						randomNr = randomGen();
+						nSub = this;
+						nIcon = "img/cloudy.png";
+						//alert(nIcon);
+						
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
+					
+				break;
+			case 2:
+				var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(header.sun, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						huge.html(this);
+						randomNr = randomGen();
+						nText = this;
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
+				var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(subtitles.sun, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						subtitle.html(this);
+						randomNr = randomGen();
+						nSub = this;
+						nIcon = "img/sun.png";
+						//alert(nIcon);
+						
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
+					
+				break;
+			}
+	}
+	
+	/*function notifyText(nText, nSub, nIcon) {
+		var IconPath = "img/" + nIcon + ".png";
+		//Timer interval of 2min
+		notifyMe(nText, nSub, IconPath);
+	}*/
+	
+	function randomGen() {
+		return Math.floor((Math.random()*4)+1);
 	}
 	/* About Page*/
 	function aboutPage(){
@@ -150,7 +345,11 @@ $(function(){
 		}
 	}
 
+<<<<<<< HEAD
 	function notifyMe(notifyMessage) {
+=======
+	function notifyMe(notifyTitle, notifyBody, notifyIcon) {
+>>>>>>> 790b6129d7bee07bb3021920999f7fc5bd81f3cd
 		// Let's check if the browser supports notifications
 		if (!"Notification" in window) {
 			alert("This browser does not support desktop notification");
@@ -159,7 +358,12 @@ $(function(){
 		// Let's check if the user is okay to get some notification
 		else if (Notification.permission === "granted") {
 		// If it's okay let's create a notification
+<<<<<<< HEAD
 			var notification = new Notification(notifyMessage);
+=======
+			/*var notification = new Notification(notifyMessage);*/
+			var notification = new Notification(notifyTitle, {body: notifyBody, icon: notifyIcon});
+>>>>>>> 790b6129d7bee07bb3021920999f7fc5bd81f3cd
 		}
 		// Otherwise, we need to ask the user for permission
 		// Note, Chrome does not implement the permission static property
@@ -172,7 +376,11 @@ $(function(){
 			}
 			// If the user is okay, let's create a notification
 			if (permission === "granted") {
+<<<<<<< HEAD
 				var notification = new Notification(notifyMessage);
+=======
+				var notification = new Notification(notifyTitle, {body: notifyBody, icon: notifyIcon});
+>>>>>>> 790b6129d7bee07bb3021920999f7fc5bd81f3cd
 			}
 			});
 			}
@@ -194,11 +402,11 @@ $(function(){
 				subtitle.html('Please allow geolocation access for this to work.');
 				changeSlide(3);
 				break;
-			case error.NO_GEOLOCATION:
+			case "NO_GEOLOCATION":
 				subtitle.html('Your browser does not support Geolocation!');
 				changeSlide(3);
 				break;
-			case error.NO_CITY_FOUND:
+			case "NO_CITY_FOUND":
 				location.html('We can\'t find information about your city!');
 				changeSlide(3);
 				break;
