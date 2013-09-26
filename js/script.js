@@ -1,16 +1,60 @@
 $(function(){
-
 	/* Configuration */
+	var header = {
+        "rain": {
+            "r1": "Dude, it's totally gonna rain today!",
+            "r2": "Brace yourselves, Rain is coming.",
+            "r3": "Rain. Rain everywhere.",
+            "r4": "Bad news, guys. It's gonna rain."
+        },
+        "cloudy": {
+            "c1": "It might be raining today, but I'm not sure.",
+            "c2": "It could possibly rain today.",
+            "c3": "The possibily of rain is not to be ruled out.",
+            "c4": "It may very well rain today."
+        },
+        "sun": {
+            "s1": "Nothing to worry about.",
+            "s2": "Everything's fine.",
+            "s3": "Lookin' good!",
+            "s4": "You're in luck."
+        }
+    
+    };
+   var subtiles = {
+        "rain": {
+            "r1": "Better get an umbrella or something.",
+            "r2": "I suggest staying at home and chilling out today.",
+            "r3": "If you're thinking of leaving the house, you best think again.",
+            "r4": "You should probably not leave the house without a jacket."
+        },
+        "cloudy": {
+            "c1": "Take an umbrella, or don't. Your call. Don't blame me if you get wet, though.",
+            "c2": "It's hard to say whether it's goint to rain, so you better be prepared.",
+            "c3": "You should probably take an umbrella with you, just to be safe.",
+            "c4": "If you're leaving the house you should take an umbrella with you."
+        },
+        "sun": {
+            "s1": "No rain in sight.",
+            "s2": "Rain is really unlikely today.",
+            "s3": "It's not going to rain today.",
+            "s4": "I'm pretty sure it's not going to rain."
+        }
+    
+};
+
 
 	var DEG = 'c';			// c for celsius, f for fahrenheit
 	var rainCt = 0, cloudyCt = 0, sunCt = 0;
 	var lastpage = 5;
 	var lastpage2 = 5;
-	notifyMe("Hello World");
+	
+	notifyMe("Hello World", "Zweite Zeile", "img/sun.png");
 	
 	var weatherDiv = $('#weather'),
 		scroller = $('#scroller'),
 		location = $('p.location'),
+		huge = $('.huge'),
 		subtitle = $('h4.subtitle');
 		
 		$( ".info" ).click(function() {
@@ -18,7 +62,7 @@ $(function(){
 		});
 	
 	//Timer interval of 2min
-	setInterval(function(){notifyMe("Hallo world!Nach 2 ");},  2*60 * 100);
+	setInterval(function(){notifyMe("Hello World2", "Zweite Zeile2", "16_3.png");},  2*60 * 100);
 	
 	// Does this browser support geolocation?
 	if (navigator.geolocation) {
@@ -125,6 +169,7 @@ $(function(){
 		}
 	}
 	function changeSlide(slideNr){
+		//randomGen();
 		var slides = ["slide-rain", "slide-cloudy", "slide-sun", "slide-error", "slide-about", "slide-blank"];
 		var slide = document.getElementById(slides[slideNr]);
 		for (var i = 0; i < 6; i++) {
@@ -133,12 +178,16 @@ $(function(){
 		} 
 		lastpage2 = lastpage;
 		lastpage = slideNr;
+
 		slide.style.display="block";
 	}
-	function resetCt () {
+	function resetCt() {
 		rainCt = 0;
 		cloudyCt = 0;
 		sunCt = 0;
+	}
+	function randomGen() {
+		Math.floor((Math.random()*4)+1);
 	}
 	/* About Page*/
 	function aboutPage(){
@@ -150,7 +199,7 @@ $(function(){
 		}
 	}
 
-	function notifyMe(notifyMessage) {
+	function notifyMe(notifyTitle, notifyBody, notifyIcon) {
 		// Let's check if the browser supports notifications
 		if (!"Notification" in window) {
 			alert("This browser does not support desktop notification");
@@ -160,7 +209,7 @@ $(function(){
 		else if (Notification.permission === "granted") {
 		// If it's okay let's create a notification
 			/*var notification = new Notification(notifyMessage);*/
-			var notification = new Notification("Title", {body: 'Hallo des id dei zweite zeile', icon: "favicon.png"});
+			var notification = new Notification(notifyTitle, {body: notifyBody, icon: notifyIcon});
 		}
 		// Otherwise, we need to ask the user for permission
 		// Note, Chrome does not implement the permission static property
@@ -173,7 +222,7 @@ $(function(){
 			}
 			// If the user is okay, let's create a notification
 			if (permission === "granted") {
-				var notification = new Notification(notifyMessage);
+				var notification = new Notification(notifyTitle, {body: notifyBody, icon: notifyIcon});
 			}
 			});
 			}
