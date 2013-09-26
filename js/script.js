@@ -48,18 +48,22 @@ $(function(){
 	var rainCt = 0, cloudyCt = 0, sunCt = 0;
 	var lastpage = 5;
 	var lastpage2 = 5;
-	
-	notifyMe("Hello World", "Zweite Zeile", "img/sun.png");
+	//var ran = "r"+randomGen();
+	//notifyMe(header.rain.ran, "Zweite Zeile", "img/sun.png");
 	
 	var weatherDiv = $('#weather'),
 		scroller = $('#scroller'),
 		location = $('p.location'),
 		huge = $('.huge'),
 		subtitle = $('h4.subtitle');
-		
-		$( ".info" ).click(function() {
-		aboutPage();
-		});
+	var randomNr = randomGen();
+	
+	// About Page	
+	$( ".info" ).click(function() {
+	aboutPage();
+	});
+	
+	
 	
 	//Timer interval of 2min
 	setInterval(function(){notifyMe("Hello World2", "Zweite Zeile2", "16_3.png");},  2*60 * 100);
@@ -180,14 +184,60 @@ $(function(){
 		lastpage = slideNr;
 
 		slide.style.display="block";
+		
+		randomSlide(slideNr);
 	}
 	function resetCt() {
 		rainCt = 0;
 		cloudyCt = 0;
 		sunCt = 0;
 	}
+	function randomSlide(currSlide) {
+		
+		switch(currSlide) {
+			case 0:
+				var randomSlideNumber = 1;
+				$.each(header.rain, function(){
+				if ( randomNr === randomSlideNumber ) {
+					//alert(this);
+					huge.html(this);
+					randomNr = randomGen();
+					return false;
+					}
+					else{randomSlideNumber++;}
+					});
+					
+				break;
+			case 1:
+				var randomSlideNumber = 1;
+				$.each(header.cloudy, function(){
+				if ( randomNr === randomSlideNumber ) {
+					//alert(this);
+					huge.html(this);
+					randomNr = randomGen();
+					return false;
+					}
+					else{randomSlideNumber++;}
+					});
+					
+				break;
+			case 2:
+				var randomSlideNumber = 1;
+				$.each(header.sun, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						huge.html(this);
+						randomNr = randomGen();
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
+					
+				break;
+			}
+	}
 	function randomGen() {
-		Math.floor((Math.random()*4)+1);
+		return Math.floor((Math.random()*4)+1);
 	}
 	/* About Page*/
 	function aboutPage(){
