@@ -48,15 +48,17 @@ $(function(){
 	var rainCt = 0, cloudyCt = 0, sunCt = 0;
 	var lastpage = 5;
 	var lastpage2 = 5;
-	//var ran = "r"+randomGen();
-	//notifyMe(header.rain.ran, "Zweite Zeile", "img/sun.png");
+
 	
 	var weatherDiv = $('#weather'),
 		scroller = $('#scroller'),
 		location = $('p.location'),
 		huge = $('.huge'),
 		subtitle = $('h4.subtitle');
+	var nText, nSub, nIcon;
 	var randomNr = randomGen();
+	
+	setInterval(function(){notifyMe(nText, nSub, nIcon)},  2*60 * 100);
 	
 	// About Page	
 	$( ".info" ).click(function() {
@@ -65,8 +67,7 @@ $(function(){
 	
 	
 	
-	//Timer interval of 2min
-	//setInterval(function(){notifyMe("Hello World2", "Zweite Zeile2", "16_3.png");},  2*60 * 100);
+	
 	
 	// Does this browser support geolocation?
 	if (navigator.geolocation) {
@@ -184,8 +185,9 @@ $(function(){
 		lastpage = slideNr;
 
 		slide.style.display="block";
-		
+		 
 		randomSlide(slideNr);
+		notifyMe(nText, nSub, nIcon);
 	}
 	function resetCt() {
 		rainCt = 0;
@@ -217,6 +219,21 @@ $(function(){
 						}
 						else{randomSlideNumber++;}
 						});
+					var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(subtitles.rain, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						subtitle.html(this);
+						randomNr = randomGen();
+						nSub = this;
+						nIcon = "img/rain.png";
+						//alert(nIcon);
+						
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
 					
 				break;
 			case 1:
@@ -241,6 +258,21 @@ $(function(){
 						}
 						else{randomSlideNumber++;}
 						});
+					var randomSlideNumber = 1;
+				randomNr = randomGen();
+				$.each(subtitles.cloudy, function(){
+					if ( randomNr === randomSlideNumber ) {
+						//alert(this);
+						subtitle.html(this);
+						randomNr = randomGen();
+						nSub = this;
+						nIcon = "img/cloudy.png";
+						//alert(nIcon);
+						
+						return false;
+						}
+						else{randomSlideNumber++;}
+						});
 					
 				break;
 			case 2:
@@ -251,6 +283,7 @@ $(function(){
 						//alert(this);
 						huge.html(this);
 						randomNr = randomGen();
+						nText = this;
 						return false;
 						}
 						else{randomSlideNumber++;}
@@ -262,6 +295,10 @@ $(function(){
 						//alert(this);
 						subtitle.html(this);
 						randomNr = randomGen();
+						nSub = this;
+						nIcon = "img/sun.png";
+						//alert(nIcon);
+						
 						return false;
 						}
 						else{randomSlideNumber++;}
@@ -270,6 +307,12 @@ $(function(){
 				break;
 			}
 	}
+	
+	/*function notifyText(nText, nSub, nIcon) {
+		var IconPath = "img/" + nIcon + ".png";
+		//Timer interval of 2min
+		notifyMe(nText, nSub, IconPath);
+	}*/
 	
 	function randomGen() {
 		return Math.floor((Math.random()*4)+1);
