@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'novecento_widedemibold';
+    src: url('fonts/novecentowide-demibold-webfont.eot');
+    src: url('fonts/novecentowide-demibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/novecentowide-demibold-webfont.woff') format('woff'),
+         url('fonts/novecentowide-demibold-webfont.ttf') format('truetype'),
+         url('fonts/novecentowide-demibold-webfont.svg#novecento_widedemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*-------------------------
 	Simple reset
 --------------------------*/
