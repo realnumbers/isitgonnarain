@@ -6,6 +6,8 @@ $(function(){
 	var rainCt = 0, cloudyCt = 0, sunCt = 0;
 	var lastpage = 5;
 	var lastpage2 = 5;
+	notifyMe("Hello World");
+	
 	var weatherDiv = $('#weather'),
 		scroller = $('#scroller'),
 		location = $('p.location'),
@@ -14,8 +16,9 @@ $(function(){
 		$( ".info" ).click(function() {
 		aboutPage();
 		});
-
 	
+	//Timer interval of 2min
+	setInterval(function(){notifyMe("Hallo world!Nach 2 ");},  2*60 * 100);
 	
 	// Does this browser support geolocation?
 	if (navigator.geolocation) {
@@ -146,8 +149,38 @@ $(function(){
 			changeSlide(4);
 		}
 	}
-	/* Error handling functions */
 
+	function notifyMe(notifyMessage) {
+		// Let's check if the browser supports notifications
+		if (!"Notification" in window) {
+			alert("This browser does not support desktop notification");
+		}
+
+		// Let's check if the user is okay to get some notification
+		else if (Notification.permission === "granted") {
+		// If it's okay let's create a notification
+			/*var notification = new Notification(notifyMessage);*/
+			var notification = new Notification("Title", {body: 'Hallo des id dei zweite zeile', icon: "favicon.png"});
+		}
+		// Otherwise, we need to ask the user for permission
+		// Note, Chrome does not implement the permission static property
+		// So we have to check for NOT 'denied' instead of 'default'
+		else if (Notification.permission !== 'denied') {
+			Notification.requestPermission(function (permission) {
+			// Whatever the user answers, we make sure Chrome stores the information
+			if(!('permission' in Notification)) {
+				Notification.permission = permission;
+			}
+			// If the user is okay, let's create a notification
+			if (permission === "granted") {
+				var notification = new Notification(notifyMessage);
+			}
+			});
+			}
+			// At last, if the user already denied any notification, and you 
+			// want to be respectful there is no need to bother him any more.
+	}
+	/* Error handling functions */
 	function locationError(error){
 		switch(error.code) {
 			case error.TIMEOUT:
