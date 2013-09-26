@@ -48,7 +48,7 @@ $(function(){
 	var rainCt = 0, cloudyCt = 0, sunCt = 0;
 	var lastpage = 5;
 	var lastpage2 = 5;
-
+	
 	
 	var weatherDiv = $('#weather'),
 		scroller = $('#scroller'),
@@ -192,6 +192,7 @@ $(function(){
 		 
 		randomSlide(slideNr);
 		notifyMe(nText, nSub, nIcon);
+		document.title = "Dry - " + nText;
 	}
 	function resetCt() {
 		rainCt = 0;
