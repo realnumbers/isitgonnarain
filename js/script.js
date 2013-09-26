@@ -58,8 +58,12 @@ $(function(){
 	var nText, nSub, nIcon;
 	var randomNr = randomGen();
 	
-	setInterval(function(){notifyMe(nText, nSub, nIcon)},  2*60 * 100);
-	
+		setInterval(function(){
+		if ( nText !== undefined)
+	{
+		notifyMe(nText, nSub, nIcon)
+	}
+	},  2*60 * 100);
 	// About Page	
 	$( ".info" ).click(function() {
 	aboutPage();
