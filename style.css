@@ -7,70 +7,92 @@
   box-sizing: border-box;
   margin: 0;
 	padding: 0;
-
- }
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box !important;
-	-moz-box-sizing: border-box !important;
 }
-
 /*-------------------------
-	General Styles
+	Typography
 --------------------------*/
-html{
-	background-color: 
-}
-body{
-	font-size: 14px;
+body {
+	font-size: 0.875em;
 	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-	color: #fff;
+	color: white;
 	font-weight: normal;
 }
+p {
+  font-size: 1.4em;
+  line-height: 140%;
+}
 a, a:visited {
-	outline: none;
-	color: #1c4f64;
-	text-decoration: none;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
 }
-a:hover{
-	text-decoration: none;
-}
-section, footer, header{
-	display: block;
-}
-/*----------------------------
-	The Header
------------------------------*/
-header h1{
-	text-align:left;
-	font-size: 52px;
+h1 {
+	font-size: 2.6em;
 	font-family: 'Novecento Wide', Helvetica, Arial, sans-serif;
 	font-weight: bold;
-	padding-top: 60px;
-
 }
-/*----------------------------
-	The Weather Div
------------------------------*/
-
+h4 {
+  font-size: 1.8em;
+  letter-spacing: 0.006em;
+  line-height: 98%;
+  font-style: italic;
+  font-weight: 300;
+}
+.location {
+  font-style: italic;
+  font-weight: bold;
+  float: left;
+  padding-top: 4px;
+}
+.info {
+  font-size: 2em;
+  font-weight: 400;
+  color: white !important;
+  float: right;
+  cursor: pointer;
+}
+/*-------------------------
+	Layout
+--------------------------*/
 html, body {
   height: 100% !important;
   width: 100% !important;
   overflow: none;
+  backround-color: none;
+}
+section, footer, header {
+	display: block;
+}
+footer {
+  padding: 30px 0;
+}
+.huge {
+  margin-bottom: 10%;
+}
+.hugeAbout {
+  margin-bottom: 10%;
 }
 #weather {
   height: 100%;
   width: 100%;
 }
 .slide {
-  padding: 100px 0 0 0;
+  padding: 20% 0 0 0;
   height: 100%;
   width: 100%;
 }
 .slide > * {
-  width: 80% !important;
-  margin-left: 10%;
+  width: 90% !important;
+  margin-left: 5%;
+  margin-right: 5%;
 }
+.slide > footer {
+  position: absolute;
+  bottom: 0;
+}
+/*----------------------------
+	The Weather Div
+-----------------------------*/
 #slide-rain {
   background-color: #014f72;
   background-image: linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
@@ -105,48 +127,47 @@ background-image: -webkit-gradient(
   display: none;
 }
 #slide-sun {
+  display: none;
   background-color: #01a7f2;
   background-image: linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
-background-image: -o-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
-background-image: -moz-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
-background-image: -webkit-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
-background-image: -ms-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
+  background-image: -o-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
+  background-image: -moz-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
+  background-image: -webkit-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
+  background-image: -ms-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
 
-background-image: -webkit-gradient(
+  background-image: -webkit-gradient(
 	linear,
 	left bottom,
 	left top,
 	color-stop(0.14, rgb(133,216,255)),
 	color-stop(0.86, rgb(1,166,242))
 );
-  display: none;
 }
 #slide-about {
+  display: none;
   background-color: grey;
   background-image: linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
-background-image: -o-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
-background-image: -moz-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
-background-image: -webkit-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
-background-image: -ms-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
+  background-image: -o-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
+  background-image: -moz-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
+  background-image: -webkit-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
+  background-image: -ms-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
 
-background-image: -webkit-gradient(
+  background-image: -webkit-gradient(
 	linear,
 	left bottom,
 	left top,
 	color-stop(0.14, rgb(102,102,102)),
 	color-stop(0.86, rgb(51,51,51))
 );
-  display: none;
 }
 #slide-blank {
-  background-color: grey;
   background-image: linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
-background-image: -o-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
-background-image: -moz-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
-background-image: -webkit-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
-background-image: -ms-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
+  background-image: -o-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
+  background-image: -moz-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
+  background-image: -webkit-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
+  background-image: -ms-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
 
-background-image: -webkit-gradient(
+  background-image: -webkit-gradient(
 	linear,
 	left bottom,
 	left top,
@@ -156,14 +177,13 @@ background-image: -webkit-gradient(
   display: block;
 }
 #slide-error {
-  background-color: red;
   background-image: linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
-background-image: -o-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
-background-image: -moz-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
-background-image: -webkit-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
-background-image: -ms-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
+  background-image: -o-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
+  background-image: -moz-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
+  background-image: -webkit-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
+  background-image: -ms-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
 
-background-image: -webkit-gradient(
+  background-image: -webkit-gradient(
 	linear,
 	left bottom,
 	left top,
@@ -173,63 +193,9 @@ background-image: -webkit-gradient(
   display: none;
 }
 
-footer {
-  padding: 30px 0;
-}
-footer > * {
-  
-}
-.huge {
-  font-size: 80px;
-  margin-bottom: 80px;
-  letter-spacing: 0.006em;
-  line-height: 98%;
-}
-.hugeAbout {
-  font-size: 80px;
-  margin-bottom: 80px;
-  letter-spacing: 0.006em;
-  line-height: 98%;
-}
-.subtitle {
-  font-size: 28px;
-  font-style: italic;
-  font-weight: normal;
-}
-.about {
-  font-size: 19px;
-  line-height: 140%;
-}
-.about > a {
-  color: white;
-  font-weight: bold;
-  text-decoration: underline;
-}
-.location {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: 22px;
-  font-style: italic;
-  font-weight: bold;
-  float: left;
-  padding-top: 4px;
-}
-.info {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: 32px;
-  font-weight: 400;
-  color: #fff !important;
-  float: right;
-  cursor: pointer;
-}
-.slide > footer {
-  position: absolute;
-  bottom: 0;
-}
-
-
 /*#####################################################*/
 /*#####################################################*/
-
+/*
 @media screen and (max-width: 1100px) {
 .huge {
   font-size: 60px;
@@ -242,6 +208,7 @@ footer > * {
   padding-top: 30px;
 }
 }
+
 @media screen and (max-width: 800px) {
 .huge {
   padding-top: 0px;
@@ -276,7 +243,6 @@ footer > * {
   font-size: 45px;
   margin-bottom: 35px;
 }
-
 .hugeAbout {
   font-size: 45px;
   margin-bottom: 35px;
@@ -292,3 +258,4 @@ footer {
   padding-top: 9px;
 }
 }
+*/
