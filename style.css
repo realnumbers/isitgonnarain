@@ -18,8 +18,9 @@ body {
 	font-weight: normal;
 }
 p {
-  font-size: 1.4em;
+  font-size: 1.25em;
   line-height: 140%;
+  letter-spacing: 0.006em;
 }
 a, a:visited {
   color: white;
@@ -39,6 +40,7 @@ h4 {
   font-weight: 300;
 }
 .location {
+  font-size: 1.35em;
   font-style: italic;
   font-weight: bold;
   float: left;
@@ -64,7 +66,7 @@ section, footer, header {
 	display: block;
 }
 footer {
-  padding: 30px 0;
+  padding: 3% 0;
 }
 .huge {
   margin-bottom: 10%;
@@ -90,172 +92,135 @@ footer {
   position: absolute;
   bottom: 0;
 }
+#logo > img {
+  width: 50%;
+  margin: 20% 25%;
+}
 /*----------------------------
-	The Weather Div
+	Gradients
 -----------------------------*/
 #slide-rain {
-  background-color: #014f72;
-  background-image: linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
-background-image: -o-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
-background-image: -moz-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
-background-image: -webkit-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
-background-image: -ms-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
-background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.14, rgb(103,176,210)),
-	color-stop(0.86, rgb(1,78,114))
-);
   display: none;
+  background-image: linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+  background-image: -o-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+  background-image: -moz-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+  background-image: -webkit-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+  background-image: -ms-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+  background-image: -webkit-gradient(linear, left bottom,	left top,	color-stop(0.14, rgb(103,176,210)), color-stop(0.86, rgb(1,78,114)));
 }
 #slide-cloudy {
-  background-color: #648695;
-  background-image: linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
-background-image: -o-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
-background-image: -moz-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
-background-image: -webkit-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
-background-image: -ms-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
-
-background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.14, rgb(184,201,212)),
-	color-stop(0.86, rgb(100,134,149))
-);
   display: none;
+  background-image: linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
+  background-image: -o-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
+  background-image: -moz-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
+  background-image: -webkit-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
+  background-image: -ms-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
+  background-image: -webkit-gradient(linear, left bottom,	left top,	color-stop(0.14, rgb(184,201,212)),	color-stop(0.86, rgb(100,134,149)));
 }
 #slide-sun {
   display: none;
-  background-color: #01a7f2;
   background-image: linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
   background-image: -o-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
   background-image: -moz-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
   background-image: -webkit-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
   background-image: -ms-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
-
-  background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.14, rgb(133,216,255)),
-	color-stop(0.86, rgb(1,166,242))
-);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.14, rgb(133,216,255)), color-stop(0.86, rgb(1,166,242)));
 }
 #slide-about {
   display: none;
-  background-color: grey;
   background-image: linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
   background-image: -o-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
   background-image: -moz-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
   background-image: -webkit-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
   background-image: -ms-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
-
-  background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.14, rgb(102,102,102)),
-	color-stop(0.86, rgb(51,51,51))
-);
+  background-image: -webkit-gradient(linear, left bottom,	left top, color-stop(0.14, rgb(102,102,102)), color-stop(0.86, rgb(51,51,51)));
 }
 #slide-blank {
+  display: block;
   background-image: linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
   background-image: -o-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
   background-image: -moz-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
   background-image: -webkit-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
   background-image: -ms-linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
-
-  background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.14, rgb(102,102,102)),
-	color-stop(0.86, rgb(51,51,51))
-);
-  display: block;
+  background-image: -webkit-gradient(linear, left bottom,	left top,	color-stop(0.14, rgb(102,102,102)),	color-stop(0.86, rgb(51,51,51)));
 }
 #slide-error {
+  display: none;
   background-image: linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
   background-image: -o-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
   background-image: -moz-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
   background-image: -webkit-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
   background-image: -ms-linear-gradient(bottom, rgb(252,124,92) 14%, rgb(238,46,3) 86%);
-
-  background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.14, rgb(252,124,92)),
-	color-stop(0.86, rgb(238,46,3))
-);
-  display: none;
+  background-image: -webkit-gradient(linear, left bottom,	left top,	color-stop(0.14, rgb(252,124,92)), color-stop(0.86, rgb(238,46,3)));
 }
+
 
 /*#####################################################*/
 /*#####################################################*/
-/*
-@media screen and (max-width: 1100px) {
-.huge {
-  font-size: 60px;
-  margin-bottom: 40px;
-  padding-top: 30px;
+
+
+@media screen and (min-width: 350px) and (min-height: 350px) {
+#logo > img {
+  width: 40%;
+  margin: 10% 30%;
+}
+}
+@media screen and (min-width: 450px) and (min-height: 500px) {
+h1 {
+  font-size: 3.6em;
+}
+h4 {
+  font-size: 2.4em;
 }
 .hugeAbout {
-  font-size: 60px;
-  margin-bottom: 40px;
-  padding-top: 30px;
+  margin-bottom: 8%;
 }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 600px) and (min-height: 500px) {
+h1 {
+  font-size: 4.2em;
+}
 .huge {
-  padding-top: 0px;
+  margin-bottom: 5%;  
 }
 .hugeAbout {
-  padding-top: 0px;
+  margin-bottom: 5%;
+}
+#logo > img {
+  width: 30%;
+  margin: 10% 35%;
 }
 .slide {
-  padding-top: 60px;
+  padding: 10% 0 0 0;
+}
+p {
+  font-size: 1.6em;
 }
 }
 
-@media screen and (max-width: 600px) {
-.huge {
-  font-size: 55px;
-  margin-bottom: 35px;
+@media screen and (min-width: 700px) and (min-height: 500px) {
+h1 {
+  font-size: 6em;
 }
-.hugeAbout {
-  font-size: 55px;
-  margin-bottom: 35px;
-}
-.subtitle {
-  font-size: 22px;
- }
-}
-
-@media screen and (max-width: 400px) {
 .slide {
-  padding-top: 30px;
+  padding: 10% 0 0 0;
 }
-.huge {
-  font-size: 45px;
-  margin-bottom: 35px;
-}
-.hugeAbout {
-  font-size: 45px;
-  margin-bottom: 35px;
-}
-.subtitle {
-  font-size: 22px;
-}
-footer {
-  padding: 15px 0;
+.info {
+  font-size: 2.8em;
 }
 .location {
-  font-size: 19px;
-  padding-top: 9px;
+  font-size: 1.7em;
+  padding-top: 8px;
 }
 }
-*/
+
+@media screen and (min-width: 900px) and (min-height: 500px) {
+h1 {
+  font-size: 7em;
+}
+#logo > img {
+  width: 20%;
+  margin: 3% 40%;
+}
+}
