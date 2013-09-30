@@ -87,7 +87,7 @@ background-image: -webkit-gradient(
 );
   display: none;
 }
-#slide-cloudy {
+#slide-clouds {
   background-color: #648695;
   background-image: linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
 background-image: -o-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
@@ -104,7 +104,7 @@ background-image: -webkit-gradient(
 );
   display: none;
 }
-#slide-sun {
+#slide-clear {
   background-color: #01a7f2;
   background-image: linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
 background-image: -o-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);

@@ -11,13 +11,13 @@ var header = {
         "2": "Rain. Rain everywhere.",
         "3": "Bad news, guys. It's gonna rain."
     },
-    "cloudy": {
+    "clouds": {
         "0": "It might be raining today, but I'm not sure.",
         "1": "It could possibly rain today.",
         "2": "The possibily of rain is not to be ruled out.",
         "3": "It may very well rain today."
     },
-    "sun": {
+    "clear": {
         "0": "Nothing to worry about.",
         "1": "Everything's fine.",
         "2": "Lookin' good!",
@@ -38,13 +38,13 @@ var header = {
             "2": "If you're thinking of leaving the house, you best think again.",
             "3": "You should probably not leave the house without a jacket."
         },
-        "cloudy": {
+        "clouds": {
             "0": "Take an umbrella, or don't. Your call. Don't blame me if you get wet, though.",
             "1": "It's hard to say whether it's goint to rain, so you better be prepared.",
             "2": "You should probably take an umbrella with you, just to be safe.",
             "3": "If you're leaving the house you should take an umbrella with you."
         },
-        "sun": {
+        "clear": {
             "0": "No rain in sight.",
             "1": "Rain is really unlikely today.",
             "2": "It's not going to rain today.",
@@ -54,12 +54,12 @@ var header = {
         	"logo": "Designed and developed by <a href=\"http://julian.sparber.net\">Julian Sparber</a> and <a href=\"http://tobiasbernard.com\">Tobias Bernard</a> for the 2013 Open Data Hackathon.<br> <br>Weather Data by <a href=\"http://openweathermap.com\">OpenWeatherMap</a>.<br> <br>This application is <a href=\"https://www.gnu.org/philosophy/free-sw.html\">Free Software</a>, released under the <a href=\"https://www.gnu.org/licenses/gpl.html\">GPLv3</a> or later.<br>Get the source on <a href=\"https://github.com/realnumbers/isitgonnarain\">Github</a>."
         }
 };	
-	var RAIN = 0, CLOUDY = 1, SUN = 2, ERR0R = 3, ABOUT = 4, BLANK = 5;
-	var slides = ["rain", "cloudy", "sun", "error", "about", "blank"];
+	var RAIN = 0, CLOUDS = 1, CLEAR = 2, ERR0R = 3, ABOUT = 4, BLANK = 5;
+	var slides = ["rain", "clouds", "clear", "error", "about", "blank"];
 	var numberOfSlides = 6;
 	var rainCt = 0, 
-		cloudyCt = 0
-		sunCt = 0;
+		cloudsCt = 0
+		clearCt = 0;
 	var city, country; 
 	var nText, nSub, nIcon;
 	var previousPage = BLANK, 
@@ -108,12 +108,13 @@ var header = {
 
 			// get data:
 			getWeather(function (data) {
+				var mainLowercase = data.list[0].weather[0].main.toLowerCase();
 				console.log('weather data received');
-				console.log(data.list[0].weather[0].main);
+				console.log(mainLowercase);
 				city = data.city.name;
 				country = data.city.country;
 				location.html(city+', <b>'+country+'</b>');
-				changeSlide(data.list[0].weather[0].main);
+				changeSlide(mainLowercase);
 				
 			});
 
@@ -136,17 +137,20 @@ var header = {
 		for (var i = 0; i < numberOfSlides; i++) {
 			var s = document.getElementById("slide-" + slides[i]);
 			s.style.display="none";
-		} 
+		}
 		beforePage = previousPage;
-		previousPage = slideNr;
+		console.log(condition);
+		previousPage = condition;
+		console.log("sssdddd");
 		slide.style.display="block";
-		randomTextOnSlide(slides[slideNr]);
+		console.log("derp");
+		randomTextOnSlide("slide-" + condition);
 		document.title = "Dry - " + nText;
 	}
 	function resetCt() {
 		rainCt = 0;
-		cloudyCt = 0;
-		sunCt = 0;
+		cloudsCt = 0;
+		clearCt = 0;
 	}
 	function randomTextOnSlide(currSlide) {
 		if (currSlide !== "about" && currSlide !== "blank" && currSlide !== "error"){
