@@ -1,0 +1,27 @@
+[
+    "blank": {
+        "title": "Dry",
+        "Logo": ""
+    },
+    "rain": {
+        "r1": "Dude, it's totally gonna rain today!",
+        "r2": "Brace yourselves, Rain is coming.",
+        "r3": "Rain. Rain everywhere.",
+        "r4": "Bad news, guys. It's gonna rain."
+    },
+    "cloudy": {
+        "c1": "It might be raining today, but I'm not sure.",
+        "c2": "It could possibly rain today.",
+        "c3": "The possibily of rain is not to be ruled out.",
+        "c4": "It may very well rain today."
+    },
+    "sun": {
+        "s1": "Nothing to worry about.",
+        "s2": "Everything's fine.",
+        "s3": "Lookin' good!",
+        "s4": "You're in luck."
+    },
+    "about": {
+        "title": "About"
+    }
+]
