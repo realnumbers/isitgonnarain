@@ -54,7 +54,6 @@ var header = {
         	"logo": "Designed and developed by <a href=\"http://julian.sparber.net\">Julian Sparber</a> and <a href=\"http://tobiasbernard.com\">Tobias Bernard</a> for the 2013 Open Data Hackathon.<br> <br>Weather Data by <a href=\"http://openweathermap.com\">OpenWeatherMap</a>.<br> <br>This application is <a href=\"https://www.gnu.org/philosophy/free-sw.html\">Free Software</a>, released under the <a href=\"https://www.gnu.org/licenses/gpl.html\">GPLv3</a> or later.<br>Get the source on <a href=\"https://github.com/realnumbers/isitgonnarain\">Github</a>."
         }
 };	
-	var RAIN = 0, CLOUDS = 1, CLEAR = 2, ERR0R = 3, ABOUT = 4, BLANK = 5;
 	var slides = ["rain", "clouds", "clear", "error", "about", "blank"];
 	var numberOfSlides = 6;
 	var rainCt = 0, 
@@ -62,8 +61,8 @@ var header = {
 		clearCt = 0;
 	var city, country; 
 	var nText, nSub, nIcon;
-	var previousPage = BLANK, 
-		beforePage = BLANK;
+	var previousPage = "blank", 
+		beforePage = "blank";
 	var randomNr = randomGen();
 	var errorMsg;
 	var weatherDiv = $('#weather'),
@@ -141,10 +140,9 @@ var header = {
 		beforePage = previousPage;
 		console.log(condition);
 		previousPage = condition;
-		console.log("sssdddd");
 		slide.style.display="block";
-		console.log("derp");
-		randomTextOnSlide("slide-" + condition);
+		
+		randomTextOnSlide(condition);
 		document.title = "Dry - " + nText;
 	}
 	function resetCt() {
@@ -183,13 +181,13 @@ var header = {
 	}
 	//Change Slide to About Page
 	function aboutPage(){
-		if (previousPage === ABOUT){
+		if (previousPage === "about"){
 			nText = "Like a Weather app, but more useful";
 			changeSlide(beforePage);
 		}
 		else {
 			nText = "About";
-			changeSlide(ABOUT);
+			changeSlide("about");
 		}
 	}
 
