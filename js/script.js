@@ -53,22 +53,6 @@ var header = {
         "about": {
         	"logo": "Designed and developed by <a href=\"http://julian.sparber.net\">Julian Sparber</a> and <a href=\"http://tobiasbernard.com\">Tobias Bernard</a> for the 2013 Open Data Hackathon.<br> <br>Weather Data by <a href=\"http://openweathermap.com\">OpenWeatherMap</a>.<br> <br>This application is <a href=\"https://www.gnu.org/philosophy/free-sw.html\">Free Software</a>, released under the <a href=\"https://www.gnu.org/licenses/gpl.html\">GPLv3</a> or later.<br>Get the source on <a href=\"https://github.com/realnumbers/isitgonnarain\">Github</a>."
         }
-<<<<<<< HEAD
-    
-};
-
-
-	var DEG = 'c';			// c for celsius, f for fahrenheit
-	var rainCt = 0, cloudyCt = 0, sunCt = 0;
-	var lastpage = 5;
-	var lastpage2 = 5;
-<<<<<<< HEAD
-	notifyMe("Hello World");
-=======
-	
->>>>>>> 790b6129d7bee07bb3021920999f7fc5bd81f3cd
-	
-=======
 };	
 	var RAIN = 0, CLOUDY = 1, SUN = 2, ERR0R = 3, ABOUT = 4, BLANK = 5;
 	var slides = ["rain", "cloudy", "sun", "error", "about", "blank"];
@@ -80,21 +64,10 @@ var header = {
 		beforePage = BLANK;
 	var randomNr = randomGen();
 	var errorMsg;
->>>>>>> 5d693e71aa7747d818d2d701236329dd76b74309
 	var weatherDiv = $('#weather'),
 		location = $('p.location'),
 		huge = $('.huge'),
 		subtitle = $('h4.subtitle');
-<<<<<<< HEAD
-<<<<<<< HEAD
-		
-		$( ".info" ).click(function() {
-		aboutPage();
-		});
-=======
-	var nText, nSub, nIcon;
-	var randomNr = randomGen();
-=======
 	randomTextOnSlide("blank");
 	// Interval of 3 h
 	setInterval(function(){
@@ -104,22 +77,11 @@ var header = {
 			notifyMe(nText, nSub, nIcon)
 		}
 	},  3 * 60 * 60 * 1000);
->>>>>>> 5d693e71aa7747d818d2d701236329dd76b74309
 	
 	// goto About Page
 	$( ".info" ).click(function() {
 	aboutPage();
 	});
-<<<<<<< HEAD
-	
-	
-	
->>>>>>> 790b6129d7bee07bb3021920999f7fc5bd81f3cd
-	
-	//Timer interval of 2min
-	setInterval(function(){notifyMe("Hallo world!Nach 2 ");},  2*60 * 100);
-=======
->>>>>>> 5d693e71aa7747d818d2d701236329dd76b74309
 	
 	// Does this browser support geolocation?
 	if (navigator.geolocation) {
@@ -267,11 +229,7 @@ var header = {
 		}
 	}
 
-<<<<<<< HEAD
-	function notifyMe(notifyMessage) {
-=======
 	function notifyMe(notifyTitle, notifyBody, notifyIcon) {
->>>>>>> 790b6129d7bee07bb3021920999f7fc5bd81f3cd
 		// Let's check if the browser supports notifications
 		if (!"Notification" in window) {
 			alert("This browser does not support desktop notification");
@@ -279,12 +237,8 @@ var header = {
 		// Let's check if the user is okay to get some notification
 		else if (Notification.permission === "granted") {
 		// If it's okay let's create a notification
-<<<<<<< HEAD
-			var notification = new Notification(notifyMessage);
-=======
 			/*var notification = new Notification(notifyMessage);*/
 			var notification = new Notification(notifyTitle, {body: notifyBody, icon: notifyIcon});
->>>>>>> 790b6129d7bee07bb3021920999f7fc5bd81f3cd
 		}
 		// Otherwise, we need to ask the user for permission
 		// Note, Chrome does not implement the permission static property
@@ -297,11 +251,7 @@ var header = {
 			}
 			// If the user is okay, let's create a notification
 			if (permission === "granted") {
-<<<<<<< HEAD
-				var notification = new Notification(notifyMessage);
-=======
 				var notification = new Notification(notifyTitle, {body: notifyBody, icon: notifyIcon});
->>>>>>> 790b6129d7bee07bb3021920999f7fc5bd81f3cd
 			}
 			});
 			}
