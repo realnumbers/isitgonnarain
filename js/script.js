@@ -97,7 +97,7 @@ var header = {
 	function locationSuccess(position) {
 		try{
 				function getWeather(callback) {
-				var weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&units=metric&cnt=1';
+				var weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
 				$.ajax({
 				  dataType: "jsonp",
 				  url: weather,
@@ -132,15 +132,19 @@ var header = {
 
 	function changeSlide(condition){
 		//randomGen();
-		var slide = document.getElementById("slide-" + condition);
+		/*var slide = document.getElementById("slide-" + condition);
 		for (var i = 0; i < numberOfSlides; i++) {
 			var s = document.getElementById("slide-" + slides[i]);
 			s.style.display="none";
-		}
+		}*/
+		var tagsBody = document.getElementsByTagName('body');
+		alert(tagsBody[0].id);
+		tagsBody[0].id = "slide-" + condition;
+		alert("After " + tagsBody[0].id);
 		beforePage = previousPage;
 		console.log(condition);
 		previousPage = condition;
-		slide.style.display="block";
+		//slide.style.display="block";
 		
 		randomTextOnSlide(condition);
 		document.title = "Dry - " + nText;
