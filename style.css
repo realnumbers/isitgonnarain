@@ -37,6 +37,7 @@ a:hover{
 }
 section, footer, header{
 	display: block;
+	width: inherit;
 }
 /*----------------------------
 	The Header
@@ -59,17 +60,11 @@ html, body {
   overflow: none;
 }
 #weather {
-  height: 100%;
-  width: 100%;
-}
-.slide {
-  padding: 100px 0 0 0;
-  height: 100%;
-  width: 100%;
-}
-.slide > * {
-  width: 80% !important;
-  margin-left: 10%;
+  padding: 100px 0 0;
+  margin: 0 auto;
+  height: 80%;
+  width: 80%;
+  overflow: auto;
 }
 #slide-rain {
   background-color: #014f72;
@@ -85,7 +80,7 @@ background-image: -webkit-gradient(
 	color-stop(0.14, rgb(103,176,210)),
 	color-stop(0.86, rgb(1,78,114))
 );
-  display: none;
+  display: block;
 }
 #slide-clouds {
   background-color: #648695;
@@ -93,7 +88,7 @@ background-image: -webkit-gradient(
 background-image: -o-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
 background-image: -moz-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
 background-image: -webkit-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
-background-image: -ms-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
+background-image: -ms-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);äslid
 
 background-image: -webkit-gradient(
 	linear,
@@ -172,12 +167,10 @@ background-image: -webkit-gradient(
 );
   display: none;
 }
-
 footer {
   padding: 30px 0;
-}
-footer > * {
-  
+  position: absolute;
+  bottom: 0;
 }
 .huge {
   font-size: 80px;
@@ -211,7 +204,7 @@ footer > * {
   font-style: italic;
   font-weight: bold;
   float: left;
-  padding-top: 4px;
+  padding-top: 6px;
 }
 .info {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
@@ -220,10 +213,6 @@ footer > * {
   color: #fff !important;
   float: right;
   cursor: pointer;
-}
-.slide > footer {
-  position: absolute;
-  bottom: 0;
 }
 
 
@@ -249,7 +238,7 @@ footer > * {
 .hugeAbout {
   padding-top: 0px;
 }
-.slide {
+#weather {
   padding-top: 60px;
 }
 }
@@ -269,7 +258,7 @@ footer > * {
 }
 
 @media screen and (max-width: 400px) {
-.slide {
+#weather {
   padding-top: 30px;
 }
 .huge {

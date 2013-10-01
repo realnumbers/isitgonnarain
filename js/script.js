@@ -138,9 +138,7 @@ var header = {
 			s.style.display="none";
 		}*/
 		var tagsBody = document.getElementsByTagName('body');
-		alert(tagsBody[0].id);
 		tagsBody[0].id = "slide-" + condition;
-		alert("After " + tagsBody[0].id);
 		beforePage = previousPage;
 		console.log(condition);
 		previousPage = condition;
