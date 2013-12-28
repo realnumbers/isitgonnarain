@@ -97,7 +97,7 @@ background-image: -webkit-gradient(
 	color-stop(0.14, rgb(184,201,212)),
 	color-stop(0.86, rgb(100,134,149))
 );
-  display: none;
+  display: block;
 }
 #slide-clear {
   background-color: #01a7f2;
@@ -114,8 +114,24 @@ background-image: -webkit-gradient(
 	color-stop(0.14, rgb(133,216,255)),
 	color-stop(0.86, rgb(1,166,242))
 );
-  display: none;
 }
+#slide-snow {
+  background-color: #01a7f2;
+  background-image: linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
+background-image: -o-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
+background-image: -moz-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
+background-image: -webkit-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
+background-image: -ms-linear-gradient(bottom, rgb(133,216,255) 14%, rgb(1,166,242) 86%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.14, rgb(133,216,255)),
+	color-stop(0.86, rgb(1,166,242))
+);
+}
+
 #slide-about {
   background-color: grey;
   background-image: linear-gradient(bottom, rgb(102,102,102) 14%, rgb(51,51,51) 86%);
@@ -131,7 +147,6 @@ background-image: -webkit-gradient(
 	color-stop(0.14, rgb(102,102,102)),
 	color-stop(0.86, rgb(51,51,51))
 );
-  display: none;
 }
 #slide-blank {
   background-color: grey;
@@ -165,7 +180,7 @@ background-image: -webkit-gradient(
 	color-stop(0.14, rgb(252,124,92)),
 	color-stop(0.86, rgb(238,46,3))
 );
-  display: none;
+  display: block;
 }
 footer {
   padding: 30px 0;
