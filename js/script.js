@@ -23,6 +23,13 @@ var header = {
         "2": "Lookin' good!",
         "3": "You're in luck."
     },
+    "snow": {
+	"0": "Snow",
+	"1": "Snow1",
+	"2": "Snow2",
+	"3": "Snow3"
+    },
+
     "about": {
         "title": "About"
     }
@@ -50,12 +57,18 @@ var header = {
             "2": "It's not going to rain today.",
             "3": "I'm pretty sure it's not going to rain."
         },
+        "snow": {
+            "0": "Snow",
+	    "1": "Snow1",
+	    "2": "Snow2",
+	    "3": "Snow3"
+        },
         "about": {
         	"logo": "Designed and developed by <a href=\"http://julian.sparber.net\">Julian Sparber</a> and <a href=\"http://tobiasbernard.com\">Tobias Bernard</a> for the 2013 Open Data Hackathon.<br> <br>Weather Data by <a href=\"http://openweathermap.com\">OpenWeatherMap</a>.<br> <br>This application is <a href=\"https://www.gnu.org/philosophy/free-sw.html\">Free Software</a>, released under the <a href=\"https://www.gnu.org/licenses/gpl.html\">GPLv3</a> or later.<br>Get the source on <a href=\"https://github.com/realnumbers/isitgonnarain\">Github</a>."
         }
 };	
 	var slides = ["rain", "clouds", "clear", "error", "about", "blank"];
-	var numberOfSlides = 6;
+	var numberOfSlides = 7;
 	var rainCt = 0, 
 		cloudsCt = 0
 		clearCt = 0;
