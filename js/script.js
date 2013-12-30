@@ -137,7 +137,6 @@ var header = {
 		
 		catch(e){
 			/*Error:We can't find information about your city!*/
-			alert("Error");
 			locationError("NO_CITY_FOUND");
 			window.console && console.error(e);
 		}
@@ -166,7 +165,6 @@ var header = {
 		clearCt = 0;
 	}
 	function randomTextOnSlide(currSlide) {
-		alert(currSlide);
 		if (currSlide !== "about" && currSlide !== "blank" && currSlide !== "error"){
 			randomNr = randomGen();
 			huge.html(header[currSlide][randomNr]);
