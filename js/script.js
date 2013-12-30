@@ -68,7 +68,7 @@ var header = {
         }
 };	
 	var slides = ["rain", "clouds", "clear", "error", "about", "blank"];
-	var numberOfSlides = 7;
+	var numberOfSlides = 6;
 	var rainCt = 0, 
 		cloudsCt = 0
 		clearCt = 0;
@@ -166,6 +166,7 @@ var header = {
 		clearCt = 0;
 	}
 	function randomTextOnSlide(currSlide) {
+		alert(currSlide);
 		if (currSlide !== "about" && currSlide !== "blank" && currSlide !== "error"){
 			randomNr = randomGen();
 			huge.html(header[currSlide][randomNr]);
