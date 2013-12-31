@@ -77,7 +77,9 @@ var header = {
 	var previousPage = "blank", 
 		beforePage = "blank";
 	var randomNr = randomGen();
+	var cache = false;
 	var errorMsg;
+	var weather = "NULL";
 	var weatherDiv = $('#weather'),
 		location = $('p.location'),
 		huge = $('.huge'),
@@ -95,8 +97,12 @@ var header = {
 	// goto About Page
 	$( ".info" ).click(function() {
 	aboutPage();
+	localStorage["cache"] = "false";
 	});
-	
+	if ( localStorage["cache"] !== "true" ){
+		localStorage["city"] = prompt("Pleas type the custom City");
+		if ( localStorage["city"] === "" ){
+		
 	// Does this browser support geolocation?
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
@@ -107,23 +113,40 @@ var header = {
 	}
 	// Get user's location, and use OpenWeatherMap
 	// to get the location name and weather forecast
+	//	}
+	}	
+	else{
+		localStorage["cache"] = "true";
+		weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?q='+localStorage["city"]+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b'
+		locationSuccess();
+	}
+	}
+		weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?q='+localStorage["city"]+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b'
+		locationSuccess();
 	function locationSuccess(position) {
 		try{
-				function getWeather(callback) {
+			if ( weather === "NULL" ){
+				weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
+			}
+	//	alert(weather);
+			/*
+			 function getWeather(callback) {
 				var weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
 				$.ajax({
 				  dataType: "jsonp",
 				  url: weather,
 				  success: callback
 				});
-			}
+			}*/
 
 			// get data:
-			getWeather(function (data) {
+			getWeather(weather, function (data) {
 				var mainLowercase = data.list[0].weather[0].main.toLowerCase();
 				console.log('weather data received');
 				console.log(mainLowercase);
 				city = data.city.name;
+				localStorage["cache"] = "true";
+				localStorage["city"] = city;
 				country = data.city.country;
 				location.html(city+', <b>'+country+'</b>');
 				changeSlide(mainLowercase);
@@ -140,6 +163,21 @@ var header = {
 			locationError("NO_CITY_FOUND");
 			window.console && console.error(e);
 		}
+	}
+	function supports_html5_storage() {
+		try {
+			return 'localStorage' in window && window['localStorage'] !== null;
+		} catch (e) {
+			return false;
+		}
+	}
+	function getWeather(weather, callback) {
+		//var weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat='+lat+'&lon='+lon+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
+		$.ajax({
+		  dataType: "jsonp",
+		  url: weather,
+		  success: callback
+		});
 	}
 
 	function changeSlide(condition){
