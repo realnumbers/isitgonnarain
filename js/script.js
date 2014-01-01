@@ -47,7 +47,7 @@ $(function(){
 	
 	// Change city settings
 	$( "#settings" ).click(function() {
-		localStorage["city"] = prompt("Please insert custom city");
+		localStorage["city"] = prompt("Manually choose a city (Leave empty for automatic detection):");
 		if ( localStorage["city"] !== "" ){
 		weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?q='+localStorage["city"]+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
 		locationSuccess();
