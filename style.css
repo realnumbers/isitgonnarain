@@ -223,6 +223,7 @@ footer {
 }
 #settings {
   margin: 6px 0 0 10px;
+  cursor: pointer;
 }
 #menu {
   margin-bottom: 5px;
