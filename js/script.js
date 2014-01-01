@@ -48,15 +48,17 @@ $(function(){
 	// Change city settings
 	$( "#settings" ).click(function() {
 		localStorage["city"] = prompt("Manually choose a city (Leave empty for automatic detection):");
+	if ( localStorage["city"] !== "null" ){	
 		if ( localStorage["city"] !== "" ){
 		weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?q='+localStorage["city"]+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
 		locationSuccess();
 		}
-			if ( localStorage["city"] === "" ){
-				weather = "NULL";
-				loadLocation();
-			}
-		
+		else{
+			weather = "NULL";
+			localStorage["cache"] = "false";
+			loadLocation();
+		}
+		}
 	});
 	if ( localStorage["cache"] !== "true" ){		
 		loadLocation();
@@ -65,6 +67,7 @@ $(function(){
 		weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?q='+localStorage["city"]+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
 		locationSuccess();
 	}
+	
 	function locationSuccess(position) {
 		try{
 			if ( weather === "NULL" ){
