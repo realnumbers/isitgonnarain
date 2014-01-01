@@ -6,7 +6,7 @@ $(function(){
 		"rain": "It's totally gonna rain today!",
 		"clouds": "It might be raining today.",
 		"clear": "Nothing to worry about.",
-		"snow": "Yay, snow!",
+		"snow": "Yay, it's going to snow!",
 		"about": "About"
 	}
 
@@ -15,7 +15,7 @@ $(function(){
 		"rain": "Better get an umbrella or something.",
 		"clouds": "You should probably take an umbrella with you, just to be safe.",
 		"clear": "Rain is really unlikely today.",
-		"snow": "Get ready for SNOOOOOOOW!",
+		"snow": "You should probably wear boots and warm clothes today.",
 		"about": "Designed and developed by <a href=\"http://julian.sparber.net\">Julian Sparber</a> and <a href=\"http://tobiasbernard.com\">Tobias Bernard</a> for the 2013 Open Data Hackathon.<br> <br>Weather Data by <a href=\"http://openweathermap.com\">OpenWeatherMap</a>.<br> <br>This application is <a href=\"https://www.gnu.org/philosophy/free-sw.html\">Free Software</a>, released under the <a href=\"https://www.gnu.org/licenses/gpl.html\">GPLv3</a> or later.<br>Get the source on <a href=\"https://github.com/realnumbers/isitgonnarain\">Github</a>."
 	};
 	var numberOfSlides = 6;
