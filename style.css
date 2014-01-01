@@ -221,6 +221,12 @@ footer {
   float: left;
   padding-top: 6px;
 }
+#settings {
+  margin: 6px 0 0 10px;
+}
+#menu {
+  margin-bottom: 5px;
+}
 .info {
   font-family: "PT Sans", "Source Sans Pro", "Open Sans", Segoe, Helvetica, Arial, sans-serif;
   font-size: 32px;

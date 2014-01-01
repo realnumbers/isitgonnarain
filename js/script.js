@@ -40,28 +40,36 @@ $(function(){
 		}
 	},  3 * 60 * 60 * 1000);
 	
-	// goto About Page
-	$( ".info" ).click(function() {
-	aboutPage();
-	localStorage["cache"] = "false";
+	// Load About Page
+	$( "#menu" ).click(function() {
+		aboutPage();
+		localStorage["cache"] = "false";
 	});
+	
+	// Change city settings
+	$( "#settings" ).click(function() {
+		localStorage["city"] = prompt("Please insert custom city");
+		weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?q='+localStorage["city"]+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
+		locationSuccess();
+	});
+	
 	if ( localStorage["cache"] !== "true" ){
 		localStorage["city"] = prompt("Please insert custom city");
 		if ( localStorage["city"] === "" ){
 		
-	// Does this browser support geolocation?
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
-	}
-	else{
-		/*Error: Your browser does not support Geolocation!*/
-		locationError("NO_GEOLOCATION");
-	}
-	// Get user's location, and use OpenWeatherMap
-	// to get the location name and weather forecast
-	//	}
+		// Does this browser support geolocation?
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
+		}
+		else{
+			/*Error: Your browser does not support Geolocation!*/
+			locationError("NO_GEOLOCATION");
+		}
+		// Get user's location, and use OpenWeatherMap
+		// to get the location name and weather forecast
+		//	}
 	}	
-	else{
+	else {
 		localStorage["cache"] = "true";
 		weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?q='+localStorage["city"]+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
 		locationSuccess();
