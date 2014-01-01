@@ -100,7 +100,7 @@ var header = {
 	localStorage["cache"] = "false";
 	});
 	if ( localStorage["cache"] !== "true" ){
-		localStorage["city"] = prompt("Pleas type the custom City");
+		localStorage["city"] = prompt("Please insert custom city");
 		if ( localStorage["city"] === "" ){
 		
 	// Does this browser support geolocation?
