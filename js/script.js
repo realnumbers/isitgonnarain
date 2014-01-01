@@ -5,7 +5,7 @@ $(function(){
 		"blank": "Dry",
 		"rain": "Dude, it's totally gonna rain today!",
 		"clouds": "It might be raining today.",
-		"clear": "Everything's fine.",
+		"clear": "Nothing to worry about.",
 		"snow": "Snow",
 		"about": "About"
 	}
@@ -18,11 +18,7 @@ $(function(){
 		"snow": "Funny snow",
 		"about": "Designed and developed by <a href=\"http://julian.sparber.net\">Julian Sparber</a> and <a href=\"http://tobiasbernard.com\">Tobias Bernard</a> for the 2013 Open Data Hackathon.<br> <br>Weather Data by <a href=\"http://openweathermap.com\">OpenWeatherMap</a>.<br> <br>This application is <a href=\"https://www.gnu.org/philosophy/free-sw.html\">Free Software</a>, released under the <a href=\"https://www.gnu.org/licenses/gpl.html\">GPLv3</a> or later.<br>Get the source on <a href=\"https://github.com/realnumbers/isitgonnarain\">Github</a>."
 	};
-	var slides = ["rain", "clouds", "clear", "error", "about", "blank"];
 	var numberOfSlides = 6;
-	var rainCt = 0, 
-		cloudsCt = 0
-		clearCt = 0;
 	var city, country; 
 	var nText, nSub, nIcon;
 	var previousPage = "blank", 
@@ -143,11 +139,6 @@ $(function(){
 		textOnSlide(condition);
 		document.title = "Dry - " + nText;
 	}
-	function resetCt() {
-		rainCt = 0;
-		cloudsCt = 0;
-		clearCt = 0;
-	}
 	function textOnSlide(currSlide) {		
 		if (currSlide !== "error"){
 			huge.html(header[currSlide]);
@@ -187,7 +178,7 @@ $(function(){
 	function notifyMe(notifyTitle, notifyBody, notifyIcon) {
 		// Let's check if the browser supports notifications
 		if (!"Notification" in window) {
-			alert("This browser does not support desktop notification");
+			alert("This browser does not support web notifications");
 		}
 		// Let's check if the user is okay to get some notification
 		else if (Notification.permission === "granted") {
