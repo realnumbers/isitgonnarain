@@ -1,25 +1,12 @@
-/*-------------------------
-	Simple reset
---------------------------*/
+/*************************
+  RESET
+*************************/
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
 	padding: 0;
-
- }
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box !important;
-	-moz-box-sizing: border-box !important;
-}
-
-/*-------------------------
-	General Styles
---------------------------*/
-html{
-	background-color: 
 }
 body{
 	font-size: 14px;
@@ -35,25 +22,13 @@ a, a:visited {
 a:hover{
 	text-decoration: none;
 }
-section, footer, header{
+/*************************
+  LAYOUT
+*************************/
+section, footer {
 	display: block;
 	width: inherit;
 }
-/*----------------------------
-	The Header
------------------------------*/
-header h1{
-	text-align:left;
-	font-size: 52px;
-	font-family: 'Novecento Wide', Helvetica, Arial, sans-serif;
-	font-weight: bold;
-	padding-top: 60px;
-
-}
-/*----------------------------
-	The Weather Div
------------------------------*/
-
 html, body {
   height: 100% !important;
   width: 100% !important;
@@ -66,36 +41,75 @@ html, body {
   width: 80%;
   overflow: auto;
 }
+footer {
+  padding: 30px 0;
+  position: absolute;
+  bottom: 0;
+}
+/*************************
+  TYPOGRAPHY
+*************************/
+.huge {
+	margin-bottom: 80px;
+  padding-top: 60px;
+	font-family: 'Novecento Wide', Helvetica, Arial, sans-serif;
+	font-size: 80px;
+  letter-spacing: 0.006em;
+  line-height: 98%;
+}
+/*
+.hugeAbout {
+  margin-bottom: 80px;
+  font-size: 80px;
+  letter-spacing: 0.006em;
+  line-height: 98%;
+}
+*/
+.subtitle {
+  font-size: 25px;
+  font-style: italic;
+  font-weight: normal;
+}
+.location {
+  float: left;
+  padding-top: 6px;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: bold;
+}
+#settings {
+  margin: 6px 0 0 10px;
+  cursor: pointer;
+}
+.info {
+  float: right;
+}
+#menu {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+/*************************
+  SLIDES
+*************************/
 #slide-rain {
   background-color: #014f72;
   background-image: linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
-background-image: -o-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
-background-image: -moz-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
-background-image: -webkit-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
-background-image: -ms-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
-background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.14, rgb(103,176,210)),
-	color-stop(0.86, rgb(1,78,114))
-);
+  background-image: -o-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+  background-image: -moz-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+  background-image: -webkit-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+  background-image: -ms-linear-gradient(bottom, rgb(103,176,210) 14%, rgb(1,78,114) 86%);
+  background-image: -webkit-gradient(linear, left bottom,	left top,	color-stop(0.14, rgb(103,176,210)),	color-stop(0.86, rgb(1,78,114)));
   display: block;
 }
 #slide-clouds {
   background-color: #648695;
   background-image: linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
-background-image: -o-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
-background-image: -moz-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
-background-image: -webkit-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
-background-image: -ms-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);äslid
-
-background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.14, rgb(184,201,212)),
-	color-stop(0.86, rgb(100,134,149))
+  background-image: -o-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
+  background-image: -moz-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
+  background-image: -webkit-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
+  background-image: -ms-linear-gradient(bottom, rgb(184,201,212) 14%, rgb(100,134,149) 86%);
+  background-image: -webkit-gradient(linear, left bottom,	left top,	color-stop(0.14, rgb(184,201,212)), color-stop(0.86, rgb(100,134,149))
 );
   display: block;
 }
@@ -109,12 +123,13 @@ background-image: -webkit-gradient(
   background-image: -webkit-gradient(linear, left bottom,	left top, color-stop(0.14, rgb(133,216,255)),	color-stop(0.86, rgb(1,166,242)));
 }
 #slide-snow {
-  background-image: linear-gradient(to bottom, #dbdbdb 14%, #bdbdbd 86%);
-  background-image: -o-linear-gradient(bottom, #dbdbdb 14%, #bdbdbd 86%);
-  background-image: -moz-linear-gradient(bottom, #dbdbdb 14%, #bdbdbd 86%);
-  background-image: -webkit-linear-gradient(bottom, #dbdbdb 14%, #bdbdbd 86%);
-  background-image: -ms-linear-gradient(bottom, #dbdbdb 14%, #bdbdbd 86%);
-  background-image: -webkit-gradient(linear,	left top,	left bottom, color-stop(0.14, #dbdbdb), color-stop(0.86, #bdbdbd));
+  background-color: #999;
+  background-image: linear-gradient(to bottom, #c2c2c2 14%, #999999 86%);
+  background-image: -o-linear-gradient(bottom, #c2c2c2 14%, #999999 86%);
+  background-image: -moz-linear-gradient(bottom, #c2c2c2 14%, #999999 86%);
+  background-image: -webkit-linear-gradient(bottom, #c2c2c2 14%, #999999 86%);
+  background-image: -ms-linear-gradient(bottom, #c2c2c2 14%, #999999 86%);
+  background-image: -webkit-gradient(linear,	left top,	left bottom, color-stop(0.14, #c2c2c2), color-stop(0.86, #999999));
 }
 
 #slide-about {
@@ -145,63 +160,10 @@ background-image: -webkit-gradient(
   background-image: -webkit-gradient(linear, left bottom,	left top,	color-stop(0.14, rgb(252,124,92)), color-stop(0.86, rgb(238,46,3)));
   display: block;
 }
-footer {
-  padding: 30px 0;
-  position: absolute;
-  bottom: 0;
-}
-.huge {
-  font-size: 80px;
-  margin-bottom: 80px;
-  letter-spacing: 0.006em;
-  line-height: 98%;
-}
-.hugeAbout {
-  font-size: 80px;
-  margin-bottom: 80px;
-  letter-spacing: 0.006em;
-  line-height: 98%;
-}
-.subtitle {
-  font-size: 28px;
-  font-style: italic;
-  font-weight: normal;
-}
-.about {
-  font-size: 19px;
-  line-height: 140%;
-}
-.about > a {
-  color: white;
-  font-weight: bold;
-  text-decoration: underline;
-}
-.location {
-  font-family: "PT Sans", "Source Sans Pro", "Open Sans", Segoe, Helvetica, Arial, sans-serif;
-  font-size: 22px;
-  font-style: italic;
-  font-weight: bold;
-  float: left;
-  padding-top: 6px;
-}
-#settings {
-  margin: 6px 0 0 10px;
-  cursor: pointer;
-}
-#menu {
-  margin-bottom: 5px;
-}
-.info {
-  font-family: "PT Sans", "Source Sans Pro", "Open Sans", Segoe, Helvetica, Arial, sans-serif;
-  font-size: 32px;
-  font-weight: 400;
-  color: #fff !important;
-  float: right;
-  cursor: pointer;
-}
 
 
 /*#####################################################*/
+  MEDIA QUERIES
 /*#####################################################*/
 
 @media screen and (max-width: 1100px) {
@@ -216,15 +178,13 @@ footer {
   padding-top: 30px;
 }
 }
+
 @media screen and (max-width: 800px) {
 .huge {
   padding-top: 0px;
 }
 .hugeAbout {
   padding-top: 0px;
-}
-#weather {
-  padding-top: 60px;
 }
 }
 
@@ -238,7 +198,7 @@ footer {
   margin-bottom: 35px;
 }
 .subtitle {
-  font-size: 22px;
+  font-size: 21px;
  }
 }
 
@@ -250,13 +210,12 @@ footer {
   font-size: 45px;
   margin-bottom: 35px;
 }
-
 .hugeAbout {
   font-size: 45px;
   margin-bottom: 35px;
 }
 .subtitle {
-  font-size: 22px;
+  font-size: 19px;
 }
 footer {
   padding: 15px 0;
