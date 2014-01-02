@@ -41,12 +41,12 @@ $(function(){
 	},  3 * 60 * 60 * 1000);
 	
 	// Load About Page
-	$( "#menu" ).click(function() {
+	$( ".info" ).click(function() {
 		aboutPage();
 	});
 	
 	// Change city settings
-	$( "#settings" ).click(function() {
+	$( ".location" ).click(function() {
 		localStorage["city"] = prompt("Manually choose a city (Leave empty for automatic detection):");
 	if ( localStorage["city"] !== "null" ){	
 		if ( localStorage["city"] !== "" ){
