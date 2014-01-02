@@ -76,17 +76,17 @@ footer {
   font-size: 22px;
   font-style: italic;
   font-weight: bold;
+  cursor: pointer;
 }
 #settings {
   margin: 6px 0 0 10px;
-  cursor: pointer;
 }
 .info {
   float: right;
+  cursor: pointer;
 }
 #menu {
   margin-bottom: 5px;
-  cursor: pointer;
 }
 
 /*************************
