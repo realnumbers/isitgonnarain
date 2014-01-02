@@ -1,0 +1,19 @@
+{
+  "name": "Dry",
+  "description": "A minimalistic weather app that tells you whether it's going to rain today.",
+  "version": "v0.1",
+  "launch_path": "/index.html",
+  "icons": {
+    "256": "/img/icon-256.png",
+    "128": "/img/icon-128.png",
+    "120": "/img/icon-120.png",
+    "90": "/img/icon-90.png",
+    "60": "/img/icon-60.png",
+    "32": "/img/icon-32.png"
+  },
+  "developer": {
+    "name": "Real Numbers",
+    "url": "https://github.com/realnumbers"
+  },
+  "default_locale": "en"
+}
