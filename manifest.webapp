@@ -1,7 +1,7 @@
 {
   "name": "Dry",
   "description": "A minimalistic weather app that tells you whether it's going to rain today.",
-  "version": "v0.1",
+  "version": "0.2",
   "launch_path": "/index.html",
   "icons": {
     "256": "/img/icon-256.png",
