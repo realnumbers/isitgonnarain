@@ -15,5 +15,10 @@
     "name": "Real Numbers",
     "url": "https://github.com/realnumbers"
   },
+   "permissions": {
+    "geolocation": {
+      "description": "Used to retrieve weather data for your position."
+    }
+  },
   "default_locale": "en"
 }
