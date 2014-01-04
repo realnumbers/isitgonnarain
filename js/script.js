@@ -4,7 +4,7 @@ $(function(){
 	var header = {
 		"blank": "Dry",
 		"rain": "It's totally gonna rain today!",
-		"clouds": "It might be raining today.",
+		"clouds": "It might rain today.",
 		"clear": "Nothing to worry about.",
 		"snow": "Yay, it's going to snow!",
 		"about": "About"
