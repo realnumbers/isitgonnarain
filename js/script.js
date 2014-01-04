@@ -136,7 +136,7 @@ $(function(){
 		//slide.style.display="block";
 		
 		textOnSlide(condition);
-		document.title = "Rain? - " + nText;
+		document.title = nText;
 	}
 	function textOnSlide(currSlide) {		
 		if (currSlide !== "error"){
