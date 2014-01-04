@@ -200,6 +200,9 @@ footer {
 .subtitle {
   font-size: 21px;
  }
+ #settings {
+   margin-top: 4px;
+ }
 }
 
 @media screen and (max-width: 400px) {

@@ -2,11 +2,11 @@ $(function(){
 	/* Configuration */
 	// Initialization of content
 	var header = {
-		"blank": "Dry",
-		"rain": "It's totally gonna rain today!",
-		"clouds": "It might rain today.",
-		"clear": "Nothing to worry about.",
-		"snow": "Yay, it's going to snow!",
+		"blank": "Is it going to rain?",
+		"rain": "It's totally gonna rain today",
+		"clouds": "It might rain today",
+		"clear": "Nothing to worry about",
+		"snow": "Yay, it's going to snow",
 		"about": "About"
 	}
 
@@ -21,7 +21,7 @@ $(function(){
 	var numberOfSlides = 6;
 	var city, country; 
 	var nText, nSub, nIcon;
-	var previousPage = "blank", 
+	var previousPage = "blank",
 		beforePage = "blank";
 	var cache = false;
 	var errorMsg;
@@ -32,10 +32,10 @@ $(function(){
 		huge = $('.huge'),
 		subtitle = $('h4.subtitle');
 	textOnSlide("blank");
+	
 	// Interval of 3 h
 	setInterval(function(){
-	if ( nText !== undefined && nSub !== undefined && nIcon !== undefined )
-		{
+		if ( nText !== undefined && nSub !== undefined && nIcon !== undefined ) {
 			//alert(nText +" "+ nSub + nIcon)
 			notifyMe(nText, nSub, nIcon)
 		}
@@ -136,7 +136,7 @@ $(function(){
 		//slide.style.display="block";
 		
 		textOnSlide(condition);
-		document.title = "Dry - " + nText;
+		document.title = "Rain? - " + nText;
 	}
 	function textOnSlide(currSlide) {		
 		if (currSlide !== "error"){
