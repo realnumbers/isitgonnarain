@@ -69,13 +69,12 @@ $(function(){
 		weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?q='+localStorage["city"]+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
 		locationSuccess();
 	}
-	
+
 	function locationSuccess(position) {
 		try{
 			if ( weather === "NULL" ){
 				weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
 			}
-	//	alert(weather);
 			/*
 			 function getWeather(callback) {
 				var weather = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&units=metric&cnt=1&APPID=683af5473c859d5de2d9a1d6fdd40d9b';
@@ -91,6 +90,7 @@ $(function(){
 				var mainLowercase = data.list[0].weather[0].main.toLowerCase();
 				console.log('weather data received');
 				console.log(mainLowercase);
+				console.log(data.city.name);
 				city = data.city.name;
 				localStorage["cache"] = "true";
 				localStorage["city"] = city;
@@ -187,7 +187,7 @@ $(function(){
 	function notifyMe(notifyTitle, notifyBody, notifyIcon) {
 		// Let's check if the browser supports notifications
 		if (!"Notification" in window) {
-			alert("This browser does not support web notifications");
+			console.log("This browser does not support web notifications");
 		}
 		// Let's check if the user is okay to get some notification
 		else if (Notification.permission === "granted") {
@@ -218,23 +218,24 @@ $(function(){
 		switch(error.code) {
 			case error.TIMEOUT:
 				errorMsg = 'A timeout occured! Please try again!';
-				changeSlide(3);
+				changeSlide("error");
 				break;
 			case error.POSITION_UNAVAILABLE:
 				errorMsg = 'We can\'t detect your location. Sorry!';
-				changeSlide(3);
+				changeSlide("error");
 				break;
 			case error.PERMISSION_DENIED:
+				alert("Test");
 				errorMsg = "Please allow geolocation access for this to work.";
-				changeSlide(3);
+				changeSlide("error");
 				break;
 			case "NO_GEOLOCATION":
 				errorMsg = 'Your browser does not support Geolocation!';
-				changeSlide(3);
+				changeSlide("wrror");
 				break;
 			case "NO_CITY_FOUND":
 				errorMsg = 'We can\'t find information about your city!';
-				changeSlide(3);
+				changeSlide("error");
 				break;
 			case error.UNKNOWN_ERROR:
 				errorMsg = 'An unknown error occured!';
