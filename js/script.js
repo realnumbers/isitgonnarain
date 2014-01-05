@@ -148,9 +148,9 @@ $(function(){
 		}
 		else{
 			if (currSlide === "error"){
-				huge.html("Shit ain't working.");
+				huge.html("Shit ain't working");
 				subtitle.html(errorMsg);
-				nText = "Shit ain't working.";
+				nText = "Shit ain't working";
 			}
 			/*else {
 			huge.html(header[currSlide].title);
@@ -217,29 +217,28 @@ $(function(){
 	function locationError(error){
 		switch(error.code) {
 			case error.TIMEOUT:
-				errorMsg = 'A timeout occured! Please try again!';
+				errorMsg = 'A timeout occured. Please try reloading the page or changing your location manually by clicking the settings icon on the bottom left.';
 				changeSlide("error");
 				break;
 			case error.POSITION_UNAVAILABLE:
-				errorMsg = 'We can\'t detect your location. Sorry!';
+				errorMsg = 'We can\'t detect your location. Please set your location manually by clicking the settings icon on the bottom left.';
 				changeSlide("error");
 				break;
 			case error.PERMISSION_DENIED:
-				alert("Test");
-				errorMsg = "Please allow geolocation access for this to work.";
+				errorMsg = "Seems like you didn't allow geolocation. That's okay, you can just set your location manually by clicking the settings icon on the bottom left.";
 				changeSlide("error");
 				break;
 			case "NO_GEOLOCATION":
-				errorMsg = 'Your browser does not support Geolocation!';
-				changeSlide("wrror");
+				errorMsg = 'Your browser does not support geolocation. You can set your location manually by clicking the settings icon on the bottom left.';
+				changeSlide("error");
 				break;
 			case "NO_CITY_FOUND":
-				errorMsg = 'We can\'t find information about your city!';
+				errorMsg = 'We can\'t find information about your city. You can set your location manually by clicking the settings icon on the bottom left.';
 				changeSlide("error");
 				break;
 			case error.UNKNOWN_ERROR:
-				errorMsg = 'An unknown error occured!';
-				changeSlide(3);
+				errorMsg = 'An unknown error occured.';
+				changeSlide("error");
 				break;
 		}
 	}
