@@ -1,7 +1,7 @@
 {
   "name": "Rain",
   "description": "A minimalistic weather app that tells you whether it's going to rain today.",
-  "version": "0.3",
+  "version": "0.4",
   "launch_path": "/index.html",
   "icons": {
     "256": "/img/icon-256.png",
