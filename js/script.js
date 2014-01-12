@@ -48,7 +48,7 @@ $(function(){
 	
 	// Change city settings
 	$( ".location" ).click(function() {
-		tmp_city = prompt("Manually choose a city (Leave empty for automatic detection):");
+		tmp_city = prompt("Manually choose a city, eg. \"Berlin\" (Leave empty for automatic detection):");
 		if ( tmp_city !== null ){
 			localStorage["city"] = tmp_city;
 			if ( localStorage["city"] !== "" ){
